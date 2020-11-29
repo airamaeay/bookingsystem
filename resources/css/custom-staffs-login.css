@@ -1,0 +1,25 @@
+.page-container{
+	background-image:url('../images/login-bg.png');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center top;
+	height:100%;
+	position: absolute;
+	bottom:0px;
+}
+.custom-form{
+	background:rgba(50,50,50,0.5);
+	background:rgba(255,255,255,0.6);
+	padding:10px 20px;
+	border-radius:7px;
+}
+.custom-form input{
+	margin-top:15px;
+}
+.error-message{
+	color:#f00;
+	/*font-weight: bold;
+	background:#fff;
+	padding:2px 7px 4px 7px;
+	border-radius:5px;*/	
+}
