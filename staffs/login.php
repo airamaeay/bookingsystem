@@ -7,7 +7,7 @@
 		$result = mysqli_query($con,"SELECT * FROM staffs WHERE username='$user' AND password='$password'");
 		$fetched_data = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		if($fetched_data==null){
-			$error_message="Something went wrong!";
+			$error_message="Username and password didn't match.";
 		}else{
 			header("location: dashboard.php");
 		}
