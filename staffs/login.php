@@ -17,9 +17,7 @@
 <html>
 <head>
 	<title>Dashboard</title>
-	<link href="<?php echo $resources; ?>/css/bootstrap.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="<?php echo $resources; ?>/js/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo $resources; ?>/js/bootstrap.js"></script>
+	<?php require "../components/bootstrap.php"; ?>
 	<link href="<?php echo $resources; ?>/css/custom-staffs-login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
