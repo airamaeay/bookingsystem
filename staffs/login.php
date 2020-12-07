@@ -1,5 +1,10 @@
-<?php require "../config.php"; ?>
 <?php
+	session_start();
+	if(isset($_SESSION['staff'])){
+		header("location: dashboard.php");
+		exit;
+	}
+	require "../config.php";
 	$error_message="";
 	if(isset($_POST['submit-login'])){
 		$user = $_POST['user'];
@@ -10,6 +15,8 @@
 			$error_message="Username and password didn't match.";
 		}else{
 			header("location: dashboard.php");
+			$_SESSION['staff'] = $fetched_data['username'];
+			exit;
 		}
 	}
 ?>
