@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Staffs Login</title>
 	<?php require "../components/bootstrap.php"; ?>
 	<link href="<?php echo $resources; ?>/css/custom-staffs-login.css" rel="stylesheet" type="text/css" />
 </head>
