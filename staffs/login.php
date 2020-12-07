@@ -31,7 +31,7 @@
 				</div>
 				<div class="custom-form">
 					<form method="post">
-						<h3 class="text-dark">Login</h3>
+						<h3 class="text-dark">Staffs Login</h3>
 						<p class="error-message"><?php echo $error_message; ?></p>
 						<input type="text" class="form-control col-12" name="user" placeholder="user">
 						<input type="password" class="form-control col-12" name="password" placeholder="password">
