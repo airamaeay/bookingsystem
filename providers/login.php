@@ -5,7 +5,10 @@
 		exit;
 	}
 	require "../config.php";
+	
 	$error_message="";
+	$user_type="provider";
+	
 	if(isset($_POST['submit-login'])){
 		$user = $_POST['user'];
 		$password = $_POST['password'];
@@ -14,8 +17,11 @@
 		if($data==null){
 			$error_message="Username and password didn't match.";
 		}else{
+			$_SESSION['providers'] = array(
+				'id'=>$data['id'],
+				'user_type'=>$user_type
+			);
 			header("location: dashboard.php");
-			$_SESSION['providers'] = $data['username'];
 			exit;
 		}
 	}

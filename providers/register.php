@@ -8,6 +8,7 @@
     
     $error_message="";
     $user_type="provider";
+
     $account_type="";
     $user="";
     $first_name="";
@@ -60,9 +61,15 @@
                     NOW(),
                     NOW()
                 )");
-                $_SESSION['providers'] = $user;
-                header("location: dashboard.php");
-                exit;
+                $id=mysqli_insert_id($con);
+                if($result){
+                    $_SESSION['providers'] = array(
+                        'id'=>$id,
+                        'user_type'=>$user_type
+                    );
+                    header("location: dashboard.php");
+                    exit;
+                }
             }
 		}
 	}

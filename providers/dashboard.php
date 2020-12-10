@@ -4,6 +4,7 @@
         header('location: login.php');
         exit;
     }
+    var_dump($_SESSION['providers']);
 ?>
 <!DOCTYPE html>
 <html>
