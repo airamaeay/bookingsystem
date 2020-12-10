@@ -38,7 +38,9 @@
 		<div class="row justify-content-center">
 			<div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-8">
 				<div class="col-12 text-center">
-					<img src="<?php echo $resources; ?>/images/logo.png">
+					<a href="../">
+						<img src="<?php echo $resources; ?>/images/logo.png">
+					</a>
 				</div>
 				<div class="custom-form">
 					<form method="post">
