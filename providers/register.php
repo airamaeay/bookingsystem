@@ -18,66 +18,78 @@
     $primary_category_id="";
     
 	if(isset($_POST['submit-login'])){
-        $account_type=$_POST['account-type'];
         $first_name=$_POST['first-name'];
         $last_name=$_POST['last-name'];
         $email=$_POST['email'];
         $phone_number=$_POST['phone-number'];
-        $primary_category_id=$_POST['primary-category-id'];
-		$user = $_POST['user'];
-		$password = $_POST['password'];
-		$confirm_password = $_POST['confirm-password'];
-		$result = mysqli_query($con,"SELECT * FROM providers WHERE username='$user'");
-		$data = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		if($data!=null){
-            $error_message=$user." is already taken.";
-		}else{
-            if($password!=$confirm_password){
-                $error_message="Passwords didn't match";
-            }else{
-                $result = mysqli_query($con,"SELECT * FROM user_types WHERE user_type='$user_type'");
-                $data = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                $user_type_id = $data['id'];
-                $result = mysqli_query($con,"INSERT INTO providers (
-                    `account_type`,
-                    `username`,
-                    `email`,
-                    `password`,
-                    `first_name`,
-                    `last_name`,
-                    `phone_number`,
-                    `primary_category_id`,
-                    `modified`,
-                    `created`
-                ) VALUES (
-                    '$account_type',
-                    '$user',
-                    '$email',
-                    '$password',
-                    '$first_name',
-                    '$last_name',
-                    '$phone_number',
-                    '$primary_category_id',
-                    NOW(),
-                    NOW()
-                )");
-                $id=mysqli_insert_id($con);
-                if($result){
-                    $_SESSION['providers'] = array(
-                        'id'=>$id,
-                        'user_type'=>$user_type
-                    );
-                    header("location: dashboard.php");
-                    exit;
+        $user = $_POST['user'];
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm-password'];
+        if(isset($_POST['account-type'])){
+            $account_type=$_POST['account-type'];
+            if(isset($_POST['primary-category-id'])){
+                $primary_category_id=$_POST['primary-category-id'];
+                if($user!=""){
+                    $result = mysqli_query($con,"SELECT * FROM providers WHERE username='$user'");
+                    $data = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    if($data!=null){
+                        $error_message=$user." is already taken.";
+                    }else{
+                        if($password!=$confirm_password){
+                            $error_message="Passwords didn't match";
+                        }else{
+                            $result = mysqli_query($con,"SELECT * FROM user_types WHERE user_type='$user_type'");
+                            $data = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                            $user_type_id = $data['id'];
+                            $result = mysqli_query($con,"INSERT INTO providers (
+                                `account_type`,
+                                `username`,
+                                `email`,
+                                `password`,
+                                `first_name`,
+                                `last_name`,
+                                `phone_number`,
+                                `primary_category_id`,
+                                `modified`,
+                                `created`
+                            ) VALUES (
+                                '$account_type',
+                                '$user',
+                                '$email',
+                                '$password',
+                                '$first_name',
+                                '$last_name',
+                                '$phone_number',
+                                '$primary_category_id',
+                                NOW(),
+                                NOW()
+                            )");
+                            $id=mysqli_insert_id($con);
+                            if($result){
+                                $_SESSION['providers'] = array(
+                                    'id'=>$id,
+                                    'user_type'=>$user_type
+                                );
+                                header("location: dashboard.php");
+                                exit;
+                            }
+                        }
+                    }
+                }else{
+                    $error_message="Please type a username.";
                 }
+            }else{
+                $error_message="Please select your primary category.";
             }
-		}
+        }else{
+            $error_message="Please select an account type.";
+        }
 	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Providers Login</title>
+	<title>Providers Register</title>
 	<?php require "../components/bootstrap.php";?>
 	<link href="<?php echo $resources; ?>/css/custom-providers-register.css" rel="stylesheet" type="text/css" />
 </head>
@@ -91,9 +103,10 @@
 				<div class="custom-form">
 					<form method="post">
 						<h3 class="text-dark">Providers Register</h3>
+						<p class="error-message"><?php echo $error_message; ?></p>
                         <div class="account-type">
-                            <label>Account Type</label>
-                            <select name="account-type">
+                            <select class="form-control" name="account-type" required>
+                                <option disabled selected>Account Type</option>
                                 <?php
                                     $result = mysqli_query($con,"SELECT * FROM account_types");
                                     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -107,14 +120,13 @@
                                 ?>
                             </select>
                         </div>
-						<p class="error-message"><?php echo $error_message; ?></p>
-						<input class="form-control col-12" name="first-name" value="<?php echo $first_name; ?>" placeholder="First Name">
-						<input class="form-control col-12" name="last-name" value="<?php echo $last_name; ?>" placeholder="Last Name">
-						<input type="email" class="form-control col-12" name="email" value="<?php echo $email; ?>" placeholder="Email">
-						<input class="form-control col-12" name="phone-number" value="<?php echo $phone_number; ?>" placeholder="Phone Number">
+						<input class="form-control col-12" name="first-name" value="<?php echo $first_name; ?>" placeholder="First Name" required>
+						<input class="form-control col-12" name="last-name" value="<?php echo $last_name; ?>" placeholder="Last Name" required>
+						<input type="email" class="form-control col-12" name="email" value="<?php echo $email; ?>" placeholder="Email" required>
+						<input class="form-control col-12" name="phone-number" value="<?php echo $phone_number; ?>" placeholder="Phone Number" required>
                         <div class="primary-category">
-                            <label>Primary Category</label>
-                            <select name="primary-category-id">
+                            <select class="form-control" name="primary-category-id" required>
+                                <option disabled selected>Primary Category</option>
                                 <?php
                                     $result = mysqli_query($con,"SELECT * FROM categories");
                                     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -128,9 +140,9 @@
                                 ?>
                             </select>
                         </div>
-						<input class="form-control col-12" name="user" placeholder="username">
-						<input type="password" class="form-control col-12" name="password" placeholder="password">
-                        <input type="password" class="form-control col-12" name="confirm-password" placeholder="confirm password">
+						<input class="form-control col-12" name="user" value="<?php echo $user;?>" placeholder="username" required>
+						<input type="password" class="form-control col-12" name="password" placeholder="password" required>
+                        <input type="password" class="form-control col-12" name="confirm-password" placeholder="confirm password" required>
 						<input type="submit" value="Register" class="form-control bg-dark text-white col-12" name="submit-login">
 					</form>
 					<div class="login">
