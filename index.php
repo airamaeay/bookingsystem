@@ -33,6 +33,13 @@
           background:#c12e2e;
           color:#fff;
       }
+      .logo{    
+            display: inline;
+            width: 84px;
+      }
+      .navbar-custom{
+          padding:0px !important;
+      }
   </style>
 </head>
 
@@ -40,8 +47,8 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Booking System</a>
+    <div class="container head-custom">
+      <a class="navbar-brand" href="#"> <img class="logo" src="resources/images/logo-mini.png"> Booking System</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
