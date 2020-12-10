@@ -10,12 +10,12 @@
 		$user = $_POST['user'];
 		$password = $_POST['password'];
 		$result = mysqli_query($con,"SELECT * FROM staffs WHERE username='$user' AND password='$password'");
-		$fetched_data = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		if($fetched_data==null){
+		$data = mysqli_fetch_array($result, MYSQLI_ASSOC);
+		if($data==null){
 			$error_message="Username and password didn't match.";
 		}else{
 			header("location: dashboard.php");
-			$_SESSION['staff'] = $fetched_data['username'];
+			$_SESSION['staff'] = $data['username'];
 			exit;
 		}
 	}

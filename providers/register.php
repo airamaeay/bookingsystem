@@ -4,10 +4,25 @@
 		header("location: dashboard.php");
 		exit;
 	}
-	require "../config.php";
+    require "../config.php";
+    
     $error_message="";
     $user_type="provider";
+    $account_type="";
+    $user="";
+    $first_name="";
+    $last_name="";
+    $email="";
+    $phone_number="";
+    $primary_category_id="";
+    
 	if(isset($_POST['submit-login'])){
+        $account_type=$_POST['account-type'];
+        $first_name=$_POST['first-name'];
+        $last_name=$_POST['last-name'];
+        $email=$_POST['email'];
+        $phone_number=$_POST['phone-number'];
+        $primary_category_id=$_POST['primary-category-id'];
 		$user = $_POST['user'];
 		$password = $_POST['password'];
 		$confirm_password = $_POST['confirm-password'];
@@ -26,6 +41,7 @@
                     `account_type`,
                     `username`,
                     `email`,
+                    `password`,
                     `first_name`,
                     `last_name`,
                     `phone_number`,
@@ -36,6 +52,7 @@
                     '$account_type',
                     '$user',
                     '$email',
+                    '$password',
                     '$first_name',
                     '$last_name',
                     '$phone_number',
@@ -43,9 +60,8 @@
                     NOW(),
                     NOW()
                 )");
-                // $result = mysqli_query($con,"INSERT INTO passwords (`password`,`user`,`user_type`,`created`) VALUES ('$password','')");
-                // header("location: dashboard.php");
-                // $_SESSION['providers'] = $data['username'];
+                $_SESSION['providers'] = $user;
+                header("location: dashboard.php");
                 exit;
             }
 		}
@@ -55,7 +71,7 @@
 <html>
 <head>
 	<title>Providers Login</title>
-	<?php require "../components/bootstrap.php"; ?>
+	<?php require "../components/bootstrap.php";?>
 	<link href="<?php echo $resources; ?>/css/custom-providers-register.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -63,28 +79,32 @@
 		<div class="row justify-content-center">
 			<div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-8">
 				<div class="col-12 text-center">
-					<img src="<?php echo $resources; ?>/images/logo.png">
+					<img src="<?php echo $resources;?>/images/logo.png">
 				</div>
 				<div class="custom-form">
 					<form method="post">
 						<h3 class="text-dark">Providers Register</h3>
                         <div class="account-type">
                             <label>Account Type</label>
-                            <select name="account_type">
+                            <select name="account-type">
                                 <?php
                                     $result = mysqli_query($con,"SELECT * FROM account_types");
                                     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     foreach($data as $each){
-                                        echo '<option value="'.$each['id'].'">'.$each['account_type'].'</option>';
+                                        $selected="";
+                                        if($account_type==$each['id']){
+                                            $selected=" selected";
+                                        }
+                                        echo '<option value="'.$each['id'].'"'.$selected.'>'.$each['account_type'].'</option>';
                                     }
                                 ?>
-                            </select> 
+                            </select>
                         </div>
 						<p class="error-message"><?php echo $error_message; ?></p>
-						<input class="form-control col-12" name="first-name" placeholder="First Name">
-						<input class="form-control col-12" name="last-name" placeholder="Last Name">
-						<input type="email" class="form-control col-12" name="email" placeholder="Email">
-						<input class="form-control col-12" name="phone-number" placeholder="Phone Number">
+						<input class="form-control col-12" name="first-name" value="<?php echo $first_name; ?>" placeholder="First Name">
+						<input class="form-control col-12" name="last-name" value="<?php echo $last_name; ?>" placeholder="Last Name">
+						<input type="email" class="form-control col-12" name="email" value="<?php echo $email; ?>" placeholder="Email">
+						<input class="form-control col-12" name="phone-number" value="<?php echo $phone_number; ?>" placeholder="Phone Number">
                         <div class="primary-category">
                             <label>Primary Category</label>
                             <select name="primary-category-id">
@@ -92,10 +112,14 @@
                                     $result = mysqli_query($con,"SELECT * FROM categories");
                                     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     foreach($data as $each){
-                                        echo '<option value="'.$each['id'].'">'.$each['category'].'</option>';
+                                        $selected="";
+                                        if($primary_category_id==$each['id']){
+                                            $selected=" selected";
+                                        }
+                                        echo '<option value="'.$each['id'].'"'.$selected.'>'.$each['category'].'</option>';
                                     }
                                 ?>
-                            </select> 
+                            </select>
                         </div>
 						<input class="form-control col-12" name="user" placeholder="username">
 						<input type="password" class="form-control col-12" name="password" placeholder="password">
