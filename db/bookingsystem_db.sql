@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS `providers` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `account_type` INT NOT NULL,
     `username` VARCHAR(255) NOT NULL,
-    `password` INT NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `first_name` INT NOT NULL,
     `last_name` INT NOT NULL,
@@ -14,7 +13,13 @@ CREATE TABLE IF NOT EXISTS `providers` (
 CREATE TABLE IF NOT EXISTS `passwords`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `password` VARCHAR(255) NOT NULL,
+    `user` INT NOT NULL,
+    `user_type` INT NOT NULL,
     `created` DATETIME NOT NULL
+);
+CREATE TABLE IF NOT EXISTS `user_types`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_type` VARCHAR(50) NOT NULL,
 );
 CREATE TABLE IF NOT EXISTS `companies`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

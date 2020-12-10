@@ -30,7 +30,7 @@
 <body>
 	<div class="container-fluid page-container">
 		<div class="row justify-content-center">
-			<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 col-7">
+			<div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-8">
 				<div class="col-12 text-center">
 					<img src="<?php echo $resources; ?>/images/logo.png">
 				</div>
@@ -40,8 +40,11 @@
 						<p class="error-message"><?php echo $error_message; ?></p>
 						<input type="text" class="form-control col-12" name="user" placeholder="username">
 						<input type="password" class="form-control col-12" name="password" placeholder="password">
-						<input type="submit" class="form-control bg-dark text-white col-12" name="submit-login">
+						<input type="submit" value="Login" class="form-control bg-dark text-white col-12" name="submit-login">
 					</form>
+					<div class="register">
+						<a href="register.php">Register</a>
+					</div>
 				</div>
 			</div>
 		</div>

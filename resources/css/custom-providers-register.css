@@ -1,0 +1,47 @@
+.page-container{
+	background-image:url('../images/providers-bg.png');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:left center;
+	height:100%;
+	position: absolute;
+	bottom:0px;
+}
+.custom-form{
+	background:rgba(50,50,50,0.5);
+	background:rgba(255,255,255,0.6);
+	padding:10px 20px;
+	border-radius:7px;
+}
+.custom-form input{
+	margin-top:15px;
+}
+.error-message{
+	color:#f00;
+}
+.login{
+	margin-top:10px;
+}
+h3{
+	margin-top:5px;
+}
+.account-type{
+	margin-top:15px;
+	margin-bottom:-5px;
+}
+.account-type label{
+	margin-right:10px;
+}
+.account-type select{
+	padding:3px 1px 3px 5px;
+}
+.primary-category{
+	margin-top:15px;
+	margin-bottom:-5px;
+}
+.primary-category label{
+	margin-right:10px;
+}
+.primary-category select{
+	padding:3px 1px 3px 5px;
+}
