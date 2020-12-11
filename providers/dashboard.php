@@ -92,8 +92,17 @@
                 NOW(),
                 NOW()
             )");
-            var_dump($con->error);
-            var_dump($result);
+            if($result){
+                $error_message="";
+                $category="";
+                $title="";
+                $availability="";
+                $details="";
+                $status="";
+                $provider=$provider_id;
+                $time_from="";
+                $time_to="";
+            }
         }
     }
 ?>
@@ -124,6 +133,17 @@
     <?php
         if(count($services_data)==0){
             echo "No services yet!";
+        }else{
+            foreach($services_data as $each){                
+                echo $each['category']."<br>";
+                echo $each['status']."<br>";
+                echo $each['title']."<br>";
+                echo $each['details']."<br>";
+                echo $each['provider']."<br>";
+                echo $each['availability']."<br>";
+                echo $each['created']."<br>";
+                echo $each['modified']."<br>";
+            }
         }
     ?>
     <br>
@@ -173,9 +193,9 @@
             <br>
             Available Right Now!
             <br>
-            <input type="radio" name="available-right-now" value="1" required <?php if($status==0){echo "checked";}?>> Yes now!
+            <input type="radio" name="available-right-now" value="1" required <?php if($status==1){echo "checked";}?>> Yes now!
             <br>
-            <input type="radio" name="available-right-now" value="0" required <?php if($status==1){echo "checked";}?>> Will open soon...
+            <input type="radio" name="available-right-now" value="0" required <?php if($status==0){echo "checked";}?>> Will open soon...
             <br>
             <br>
             <input type="submit" name="create-service" value="Create Service">
