@@ -116,6 +116,8 @@
                                         $selected="";
                                         if($account_type==$each['id']){
                                             $selected=" selected";
+                                        }else{
+                                            $selected="";
                                         }
                                         echo '<option value="'.$each['id'].'"'.$selected.'>'.$each['account_type'].'</option>';
                                     }
@@ -136,6 +138,8 @@
                                         $selected="";
                                         if($primary_category_id==$each['id']){
                                             $selected=" selected";
+                                        }else{
+                                            $selected="";
                                         }
                                         echo '<option value="'.$each['id'].'"'.$selected.'>'.$each['category'].'</option>';
                                     }
