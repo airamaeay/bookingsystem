@@ -9,7 +9,7 @@
     $error_message="";
     $user_type="consumer";
 
-    $account_type="";
+    $account_type=""; 
     $user="";
     $first_name="";
     $last_name="";
@@ -83,7 +83,7 @@
 			<div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-8">
 				<div class="col-12 text-center">
 					<a href="../">
-						<img src="<?php echo $resources; ?>/images/logo.png">
+						<img src="<?php echo $resources; ?>/images/homeserv.png">
 					</a>
 				</div>
 				<div class="custom-form">

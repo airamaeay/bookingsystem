@@ -48,7 +48,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top remove-padding">
     <div class="container">
-      <a class="navbar-brand remove-padding" href="#"> <img class="logo" src="resources/images/logo-mini.png"> Booking System</a>
+      <a class="navbar-brand remove-padding" href="#"> <img class="logo" src="resources/images/homeserv.png"> Online Booking System</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,8 +68,8 @@
   <header class="masthead text-center text-white head-background">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Booking System</h1>
-        <h2 class="masthead-subheading mb-0">Will Help You Off Your House</h2>
+        <h1 class="masthead-heading mb-0">Online Booking System</h1>
+        <h2 class="masthead-subheading mb-0">Book the best services in the city</h2>
         <a href="consumers/register.php" class="btn background-blue-button btn-xl rounded-pill mt-5">Register Now</a>
       </div>
     </div>
@@ -132,7 +132,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-black">
     <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; Booking System 2020</p>
+      <p class="m-0 text-center text-white small">Copyright &copy; HomeServ Online Booking System 2020</p>
     </div>
     <!-- /.container -->
   </footer>
