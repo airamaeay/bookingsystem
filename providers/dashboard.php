@@ -8,7 +8,7 @@
 
     //BASIC INFORMATION
     $provider_id=$_SESSION['providers']['id'];
-    $result=mysqli_query($con,"SELECT 
+    $result=mysqli_query($con,"SELECT
         p.*,
         a.account_type type,
         c.category,
@@ -115,21 +115,25 @@
         //need ng provider id para hindi maedit ng ibang provider ang services ng iba
         $result=mysqli_query($con,"SELECT * FROM services WHERE id='$service_id' AND provider='$provider_id'");
         $edit_data=mysqli_fetch_array($result,MYSQLI_ASSOC);
-        
-        $edit_category=$edit_data['category'];
-        $edit_title=$edit_data['title'];
-        $edit_details=$edit_data['details'];
-        $edit_availability=$edit_data['availability'];
-        if(strpos($edit_availability,'--')!==false){
-            $edit_array_availability = explode("--",$edit_availability);
-            $edit_time_from=$edit_array_availability[0];
-            $edit_time_to=$edit_array_availability[1];
+        if($edit_data){
+            $edit_category=$edit_data['category'];
+            $edit_title=$edit_data['title'];
+            $edit_details=$edit_data['details'];
+            $edit_availability=$edit_data['availability'];
+            if(strpos($edit_availability,'--')!==false){
+                $edit_array_availability = explode("--",$edit_availability);
+                $edit_time_from=$edit_array_availability[0];
+                $edit_time_to=$edit_array_availability[1];
+            }else{
+                $edit_time_from="";
+                $edit_time_to="";
+            }
+            $edit_status=$edit_data['status'];
+            $edit_provider=$provider_id;
         }else{
-            $edit_time_from="";
-            $edit_time_to="";
+            header("location: dashboard.php");
+            exit;
         }
-        $edit_status=$edit_data['status'];
-        $edit_provider=$provider_id;
     }
     if(isset($_POST['save-edit'])){
         $title=$_POST['title'];
