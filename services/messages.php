@@ -100,9 +100,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages</title>
+	<?php require "../components/bootstrap.php"; ?>
     <link rel="stylesheet" href="../resources/css/custom-services-messages.css" type="text/css">
 </head>
 <body bgcolor="#888">
+    <?php require "../components/header.php";?>
     <?php
         $status="";
         if($data['approved']=="1"){
