@@ -60,6 +60,7 @@
                 $id=mysqli_insert_id($con);
                 if($result){
                     session_destroy();
+                    session_start();
                     $_SESSION['consumers'] = array(
                         'id'=>$id,
                         'user_type'=>$user_type

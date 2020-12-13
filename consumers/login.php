@@ -18,6 +18,7 @@
 			$error_message="Username and password didn't match.";
 		}else{
 			session_destroy();
+			session_start();
 			$_SESSION['consumers'] = array(
 				'id'=>$data['id'],
 				'user_type'=>$user_type
