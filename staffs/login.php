@@ -14,8 +14,9 @@
 		if($data==null){
 			$error_message="Username and password didn't match.";
 		}else{
-			header("location: dashboard.php");
+			session_destroy();
 			$_SESSION['staff'] = $data['username'];
+			header("location: dashboard.php");
 			exit;
 		}
 	}
