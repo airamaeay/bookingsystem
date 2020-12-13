@@ -20,8 +20,6 @@
     $data=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
     //SERVICES
-    $result=mysqli_query($con,"SELECT * FROM services WHERE provider='$provider_id'");
-    $services_data=mysqli_fetch_all($result,MYSQLI_ASSOC);
     $result=mysqli_query($con,"SELECT * FROM categories");
     $categories_data=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
@@ -47,6 +45,7 @@
         $clean_time_from=clean($con,$time_from);
         $clean_time_to=clean($con,$time_to);
 
+        $category_ok=0;
         if(isset($_POST['category'])){
             $category=$_POST['category'];
             $clean_category=clean($con,$_POST['category']);
@@ -54,8 +53,9 @@
         }else{
             $error_message="Please select a service category.";
         }
+        $availability_ok=0;
         if(isset($_POST['whole-day'])){
-            $clean_whole_day=clean($con,$clean_whole_day);
+            $clean_whole_day=clean($con,$_POST['whole-day']);
             if($clean_whole_day=='1'){
                 $availability="24 HOURS";
                 $availability_ok=1;
@@ -144,6 +144,7 @@
         $clean_time_from=clean($con,$time_from);
         $clean_time_to=clean($con,$time_to);
 
+        $category_ok=0;
         if(isset($_POST['category'])){
             $category=$_POST['category'];
             $clean_category=clean($con,$_POST['category']);
@@ -151,8 +152,10 @@
         }else{
             $error_message="Please select a service category.";
         }
+
+        $availability_ok=0;
         if(isset($_POST['whole-day'])){
-            $clean_whole_day=clean($con,$clean_whole_day);
+            $clean_whole_day=clean($con,$_POST['whole-day']);
             if($clean_whole_day=='1'){
                 $availability="24 HOURS";
                 $availability_ok=1;
@@ -202,6 +205,10 @@
         "<a href='?edit-service=".$focus_data['id']."'>Edit</a>";
         $display_note="inline";
     }
+    
+    $result=mysqli_query($con,"SELECT * FROM services WHERE provider='$provider_id'");
+    $services_data=mysqli_fetch_all($result,MYSQLI_ASSOC);
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -245,7 +252,7 @@
                 echo $each['availability']."<br>";
                 echo $each['created']."<br>";
                 echo $each['modified']."<br>";
-                echo "<a href='?edit-service=".$each['id']."'>Edit</a>";
+                echo "<a href='?edit-service=".$each['id']."'>Edit</a><br><br>";
             }
         }
     ?>
