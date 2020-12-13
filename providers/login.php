@@ -17,6 +17,7 @@
 		if($data==null){
 			$error_message="Username and password didn't match.";
 		}else{
+			session_destroy();
 			$_SESSION['providers'] = array(
 				'id'=>$data['id'],
 				'user_type'=>$user_type

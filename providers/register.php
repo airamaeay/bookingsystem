@@ -12,6 +12,7 @@
     $account_type="";
     $user="";
     $first_name="";
+
     $last_name="";
     $email="";
     $phone_number="";
@@ -66,6 +67,7 @@
                             )");
                             $id=mysqli_insert_id($con);
                             if($result){
+                                session_destroy();
                                 $_SESSION['providers'] = array(
                                     'id'=>$id,
                                     'user_type'=>$user_type
