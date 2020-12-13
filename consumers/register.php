@@ -9,7 +9,7 @@
     $error_message="";
     $user_type="consumer";
 
-    $account_type=""; 
+    $account_type="";
     $user="";
     $first_name="";
     $last_name="";

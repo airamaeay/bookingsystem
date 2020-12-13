@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "../config.php";
     if(isset($_GET["id"])){
         $clean_id=clean($con,$_GET['id']);
@@ -18,7 +19,7 @@
         exit;
     }
 
-    $consumer_id=$_SESSION['id'];
+    $consumer_id=$_SESSION['consumers']['id'];
     $servce_id=$data['id'];
     $time_from="";
     $time_to="";
@@ -26,11 +27,11 @@
     $address="";
     $message="";
     if(isset($_POST['send-booking'])){
-        $time_to=clean($con,_POST['time-to']);
-        $time_from=clean($con,_POST['time-from']);
-        $address=clean($con,_POST['address']);
-        $message=clean($con,_POST['message']);
-        $result=mysqli_query($con,"INSERT INTO book (
+        $time_to=clean($con,$_POST['time-to']);
+        $time_from=clean($con,$_POST['time-from']);
+        $address=clean($con,$_POST['address']);
+        $message=clean($con,$_POST['message']);
+        $result=mysqli_query($con,"INSERT INTO books (
             `consumer`,
             `service`,
             `message`,
@@ -51,7 +52,6 @@
         )
         ");
         if($result){
-            $consumer_id=$_SESSION['id'];
             $servce_id=$data['id'];
             $time_from="";
             $time_to="";
