@@ -1,0 +1,41 @@
+.type-message{
+    position:fixed;
+    bottom:-6px;
+    left:0px;
+    right:0px;
+}
+.type-message textarea{
+    width: 86%;
+    padding: 5px;
+    font-size: 16px;
+    height: 50px;
+    padding-right: 32px;
+}
+.type-message .submit{
+    top: -1px;
+    display: block;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    height: 64px;
+    width: 14%;
+    padding: 0px;
+    margin: 0px;
+}
+.refresh{
+    position: fixed;
+    bottom: 58px;
+    background: #888;
+    padding: 10px;
+    left: 0px;
+    right: 0px;
+}
+.messages{
+    margin-bottom:110px;
+}
+.messages span{
+    font-size: 10px;
+    position: relative;
+    display: block;
+    color: #444;
+}

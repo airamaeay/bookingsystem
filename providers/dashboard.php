@@ -210,6 +210,15 @@
         $display_note="inline";
     }
     
+    if(isset($_GET['service-unavailable'])){
+        $book_id=clean($con,$_GET['service-unavailable']);
+        $result=mysqli_query($con,"UPDATE books SET approved='2' WHERE id='$book_id'");
+        if($result){
+            header("location: dashboard.php");
+            exit;
+        }
+    }
+
     $result=mysqli_query($con,"SELECT * FROM services WHERE provider='$provider_id'");
     $services_data=mysqli_fetch_all($result,MYSQLI_ASSOC);
     
@@ -246,18 +255,19 @@
             $result=mysqli_query($con,"SELECT b.*,c.username FROM books b 
             LEFT JOIN services s ON b.service=s.id
             LEFT JOIN consumers c ON b.consumer=c.id
-            WHERE s.provider='$provider_id'");
+            WHERE s.provider='$provider_id' AND b.approved='0'");
             $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
             foreach($data as $each){
                 $hour_minutes=explode("--",$each['time']);
                 $time_to=convert_to_normal_clock($hour_minutes[0]);
                 $time_from=convert_to_normal_clock($hour_minutes[1]);
+                echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a><br>";
                 echo "From: ".$each['username']."<br>";
                 echo "Schedule: ".$time_to." to ".$time_from."<br>";
                 echo "Address: ".$each['address']."<br>";
                 echo "Message: ".$each['message']."<br>";
-                echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a>";
-                echo "<br><br>";
+                echo "<a href='?service-unavailable=".$each['id']."'>Service Unavailable</a>";
+                echo "<br><br><br><br>";
             }
         ?>
     <br><br><br>
