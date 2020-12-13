@@ -13,7 +13,6 @@
             p.email
             FROM services s LEFT JOIN providers p ON p.id=s.provider WHERE s.id='$clean_id'");
         $data=mysqli_fetch_array($result,MYSQLI_ASSOC);
-        var_dump($data);
     }else{
         header("location: ../");
         exit;
@@ -27,6 +26,10 @@
     $address="";
     $message="";
     if(isset($_POST['send-booking'])){
+        if(!isset($_SESSION['consumers'])){
+            header("location: ../consumers/login.php");
+            exit;
+        }
         $time_to=clean($con,$_POST['time-to']);
         $time_from=clean($con,$_POST['time-from']);
         $address=clean($con,$_POST['address']);

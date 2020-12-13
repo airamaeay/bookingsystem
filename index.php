@@ -55,10 +55,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="consumers/register.php">Consumer</a>
+            <a class="nav-link" href="consumers/login.php">Consumer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="providers/register.php">Provider</a>
+            <a class="nav-link" href="providers/login.php">Provider</a>
           </li>
         </ul>
       </div>
