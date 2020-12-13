@@ -240,9 +240,28 @@
     <br>
     Primary Category: <?php echo $data['category'];?>
     <br>
-    <br>
-    Services:
-    <br>
+    <br><br>
+    <h4>Books for approval:</h4>
+        <?php
+            $result=mysqli_query($con,"SELECT b.*,c.username FROM books b 
+            LEFT JOIN services s ON b.service=s.id
+            LEFT JOIN consumers c ON b.consumer=c.id
+            WHERE s.provider='$provider_id'");
+            $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach($data as $each){
+                $hour_minutes=explode("--",$each['time']);
+                $time_to=convert_to_normal_clock($hour_minutes[0]);
+                $time_from=convert_to_normal_clock($hour_minutes[1]);
+                echo "From: ".$each['username']."<br>";
+                echo "Schedule: ".$time_to." to ".$time_from."<br>";
+                echo "Address: ".$each['address']."<br>";
+                echo "Message: ".$each['message']."<br>";
+                echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a>";
+                echo "<br><br>";
+            }
+        ?>
+    <br><br><br>
+    <h4>Services:</h4>
     <?php
         if(count($services_data)==0){
             echo "No services yet!";

@@ -18,11 +18,12 @@
         exit;
     }
 
-    $consumer_id=$_SESSION['consumers']['id'];
+    if(isset($_SESSION['consumers'])){
+        $consumer_id=$_SESSION['consumers']['id'];
+    }
     $servce_id=$data['id'];
     $time_from="";
     $time_to="";
-    $time=$time_from."--".$time_to;
     $address="";
     $message="";
     if(isset($_POST['send-booking'])){
@@ -34,6 +35,7 @@
         $time_from=clean($con,$_POST['time-from']);
         $address=clean($con,$_POST['address']);
         $message=clean($con,$_POST['message']);
+        $time=$time_from."--".$time_to;
         $result=mysqli_query($con,"INSERT INTO books (
             `consumer`,
             `service`,
@@ -96,19 +98,6 @@
     <p><?php echo $data['details'];?></p>
     <p>Availability: <?php 
         $from_to=explode("--",$data['availability']); //array('06:00','18:00')
-        function convert_to_normal_clock($time){
-            $hours_minutes=explode(":",$time);
-            $hours=$hours_minutes[0];
-            $minutes=$hours_minutes[1];
-            if(12<$hours){
-                $time=($hours-12).":".$minutes;
-                $AM_or_PM=" PM";
-            }else{
-                $time=($hours-0).":".$minutes;
-                $AM_or_PM=" AM";
-            }
-            return $time.$AM_or_PM;
-        }
         echo convert_to_normal_clock($from_to[0])." to ".convert_to_normal_clock($from_to[1]);
     ?></p>
     <p>Phone: <a href="tel:<?php echo $data['phone_number'];?>"><?php echo $data['phone_number'];?></a></p>
