@@ -18,18 +18,13 @@
     <br>
     What service are you looking for?
     <form>
-        <select onchange="this.form.submit()" class="form-control" name="search-category" required>
+        <select onchange="this.form.submit()" name="search-category" required class="form-control">
             <option disabled selected>SELECT A CATEGORY</option>
             <?php
                 $result = mysqli_query($con,"SELECT * FROM categories");
                 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 foreach($data as $each){
                     $selected="";
-                    if($primary_category_id==$each['id']){
-                        $selected=" selected";
-                    }else{
-                        $selected="";
-                    }
                     echo '<option value="'.$each['id'].'"'.$selected.'>'.$each['category'].'</option>';
                 }
             ?>

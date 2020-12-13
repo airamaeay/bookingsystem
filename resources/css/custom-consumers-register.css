@@ -1,8 +1,11 @@
-.page-container{
-	background-image:url('../images/providers-bg.png');
+body{
+	background-image:url('../images/consumers-bg.png');
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:right center;
+	background-attachment: fixed;
+}
+.page-container{
 	height:100%;
 	position: absolute;
 	bottom:0px;
@@ -12,6 +15,7 @@
 	background:rgba(255,255,255,0.6);
 	padding:10px 20px;
 	border-radius:7px;
+	margin-bottom: 70px;
 }
 .custom-form input{
 	margin-top:15px;
