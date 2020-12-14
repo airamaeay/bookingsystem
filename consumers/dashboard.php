@@ -51,9 +51,13 @@
         LEFT JOIN services s ON b.service=s.id
         WHERE b.consumer='$consumer_id' 
         ");
-        $data=mysqli_fetch_all($result,MYSQLI_ASSOC);
-        foreach($data as $each){
-            echo "<a href='../services/messages.php?id=".$each['id']."'>".$each['title']."</a><br><br>";
+        if($result){
+            $data=mysqli_fetch_all($result,MYSQLI_ASSOC);
+            foreach($data as $each){
+                echo "<a href='../services/messages.php?id=".$each['id']."'>".$each['title']."</a><br><br>";
+            }
+        }else{
+            echo "No services acquired yet.";
         }
     ?>
 </body>
