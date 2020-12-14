@@ -98,6 +98,21 @@
                 $status="";
                 $time_from="";
                 $time_to="";
+
+                $tab_info="false";
+                $tab_books="false";
+                $tab_services="true";
+                $tab_add="false";
+
+                $active_tab_info="";
+                $active_tab_books="";
+                $active_tab_services="active";
+                $active_tab_add="";
+                
+                $show_active_tab_info="";
+                $show_active_tab_books="";
+                $show_active_tab_services="show active";
+                $show_active_tab_add="";
             }
         }
     }
@@ -238,15 +253,15 @@
     <div class="row">
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC INFORMATION</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">BOOKS FOR APPROVAL</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">SERVICES</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">ADD A SERVICE</a>
+            <a class="nav-link <?php echo $active_tab_info;?>" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="<?php echo $tab_info;?>">BASIC INFORMATION</a>
+            <a class="nav-link <?php echo $active_tab_books;?>" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="<?php echo $tab_books;?>">BOOKS FOR APPROVAL</a>
+            <a class="nav-link <?php echo $active_tab_services;?>" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="<?php echo $tab_services;?>">SERVICES</a>
+            <a class="nav-link <?php echo $active_tab_add;?>" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="<?php echo $tab_add;?>">ADD A SERVICE</a>
             </div>
         </div>
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div class="tab-pane fade <?php echo $show_active_tab_info;?>" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <br><br>
                 Username: <?php echo $data['username'];?>
                 <br>
@@ -260,7 +275,7 @@
                 <br>
                 Primary Category: <?php echo $data['category'];?>
             </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <div class="tab-pane fade <?php echo $show_active_tab_books;?>" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <br>
                 <br><br>
                 <h4>Books for approval:</h4>
@@ -270,21 +285,25 @@
                         LEFT JOIN consumers c ON b.consumer=c.id
                         WHERE s.provider='$provider_id' AND b.approved='0'");
                         $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
-                        foreach($data as $each){
-                            $hour_minutes=explode("--",$each['time']);
-                            $time_to=convert_to_normal_clock($hour_minutes[0]);
-                            $time_from=convert_to_normal_clock($hour_minutes[1]);
-                            echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a><br>";
-                            echo "From: ".$each['username']."<br>";
-                            echo "Schedule: ".$time_to." to ".$time_from."<br>";
-                            echo "Address: ".$each['address']."<br>";
-                            echo "Message: ".$each['message']."<br>";
-                            echo "<a href='?service-unavailable=".$each['id']."'>Service Unavailable</a>";
-                            echo "<br><br><br><br>";
+                        if($data){
+                            foreach($data as $each){
+                                $hour_minutes=explode("--",$each['time']);
+                                $time_to=convert_to_normal_clock($hour_minutes[0]);
+                                $time_from=convert_to_normal_clock($hour_minutes[1]);
+                                echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a><br>";
+                                echo "From: ".$each['username']."<br>";
+                                echo "Schedule: ".$time_to." to ".$time_from."<br>";
+                                echo "Address: ".$each['address']."<br>";
+                                echo "Message: ".$each['message']."<br>";
+                                echo "<a href='?service-unavailable=".$each['id']."'>Service Unavailable</a>";
+                                echo "<br><br><br><br>";
+                            }
+                        }else{
+                            echo "No Inquiring Consumers yet.";
                         }
                     ?>
                 <br><br><br></div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <div class="tab-pane fade <?php echo $show_active_tab_services;?>" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                 <h4>Services:</h4>
                 <?php
                     if(count($services_data)==0){
@@ -301,7 +320,7 @@
                 ?>
                 <br>
                 <br></div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <div class="tab-pane fade <?php echo $show_active_tab_add;?>" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <div class="add-services">
         <h3>Add Service</h3>
         <p style="color:#800"><?php echo $error_message;?></p>
