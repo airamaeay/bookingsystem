@@ -23,6 +23,23 @@
     $result=mysqli_query($con,"SELECT * FROM categories");
     $categories_data=mysqli_fetch_all($result,MYSQLI_ASSOC);
 
+
+
+    $tab_info="true";
+    $tab_books="false";
+    $tab_services="false";
+    $tab_add="false";
+
+    $active_tab_info="active";
+    $active_tab_books="";
+    $active_tab_services="";
+    $active_tab_add="";
+    
+    $show_active_tab_info="show active";
+    $show_active_tab_books="";
+    $show_active_tab_services="";
+    $show_active_tab_add="";
+
     $error_message="";
     $category="";
     $title="";
