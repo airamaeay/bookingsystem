@@ -227,124 +227,81 @@
 <html>
 <head>
     <title>Document</title>
+	<?php require "../components/bootstrap.php"; ?>
 </head>
 <body bgcolor="#888">
 
+    <?php require "../components/header.php";?>
     <div class="note" style="display:<?php echo $display_note;?>">
         <?php echo $note; ?>
     </div>
-
-    <br><br>
-    <a href="../logout.php?redirect=providers/login.php">Logout</a>
-    <br><br>
-    Username: <?php echo $data['username'];?>
-    <br>
-    Company Name: <?php echo $data['first_name'].' '.$data['last_name'];?>
-    <br>
-    Account Type: <?php echo $data['type'];?>
-    <br>
-    Phone Number: <?php echo $data['phone_number'];?>
-    <br>
-    Email: <?php echo $data['email'];?>
-    <br>
-    Primary Category: <?php echo $data['category'];?>
-    <br>
-    <br><br>
-    <h4>Books for approval:</h4>
-        <?php
-            $result=mysqli_query($con,"SELECT b.*,c.username FROM books b 
-            LEFT JOIN services s ON b.service=s.id
-            LEFT JOIN consumers c ON b.consumer=c.id
-            WHERE s.provider='$provider_id' AND b.approved='0'");
-            $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach($data as $each){
-                $hour_minutes=explode("--",$each['time']);
-                $time_to=convert_to_normal_clock($hour_minutes[0]);
-                $time_from=convert_to_normal_clock($hour_minutes[1]);
-                echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a><br>";
-                echo "From: ".$each['username']."<br>";
-                echo "Schedule: ".$time_to." to ".$time_from."<br>";
-                echo "Address: ".$each['address']."<br>";
-                echo "Message: ".$each['message']."<br>";
-                echo "<a href='?service-unavailable=".$each['id']."'>Service Unavailable</a>";
-                echo "<br><br><br><br>";
-            }
-        ?>
-    <br><br><br>
-    <h4>Services:</h4>
-    <?php
-        if(count($services_data)==0){
-            echo "No services yet!";
-        }else{
-            foreach($services_data as $each){                
-                echo $each['category']."<br>";
-                echo $each['status']."<br>";
-                echo $each['title']."<br>";
-                echo $each['details']."<br>";
-                echo $each['provider']."<br>";
-                echo $each['availability']."<br>";
-                echo $each['created']."<br>";
-                echo $each['modified']."<br>";
-                echo "<a href='?edit-service=".$each['id']."'>Edit</a><br><br>";
-            }
-        }
-    ?>
-    <br>
-    <br>
-    <div class="edit-services">
-        <h3>Edit Service</h3>
-        <p style="color:#800"><?php echo $error_message;?></p>
-        <form method="post">
-            <select name="category">
-                <option disabled selected>Service Category</option>
-                <?php
-                    $selected="";
-                    foreach($categories_data as $each){
-                        if($edit_category==$each['id']){
-                            $selected=" selected";
-                        }else{
-                            $selected="";
+    <div class="row">
+        <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">BASIC INFORMATION</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">BOOKS FOR APPROVAL</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">SERVICES</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">ADD A SERVICE</a>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <br><br>
+                Username: <?php echo $data['username'];?>
+                <br>
+                Company Name: <?php echo $data['first_name'].' '.$data['last_name'];?>
+                <br>
+                Account Type: <?php echo $data['type'];?>
+                <br>
+                Phone Number: <?php echo $data['phone_number'];?>
+                <br>
+                Email: <?php echo $data['email'];?>
+                <br>
+                Primary Category: <?php echo $data['category'];?>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <br>
+                <br><br>
+                <h4>Books for approval:</h4>
+                    <?php
+                        $result=mysqli_query($con,"SELECT b.*,c.username FROM books b 
+                        LEFT JOIN services s ON b.service=s.id
+                        LEFT JOIN consumers c ON b.consumer=c.id
+                        WHERE s.provider='$provider_id' AND b.approved='0'");
+                        $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                        foreach($data as $each){
+                            $hour_minutes=explode("--",$each['time']);
+                            $time_to=convert_to_normal_clock($hour_minutes[0]);
+                            $time_from=convert_to_normal_clock($hour_minutes[1]);
+                            echo "<a href='../services/messages.php?id=".$each['id']."'>Reply</a><br>";
+                            echo "From: ".$each['username']."<br>";
+                            echo "Schedule: ".$time_to." to ".$time_from."<br>";
+                            echo "Address: ".$each['address']."<br>";
+                            echo "Message: ".$each['message']."<br>";
+                            echo "<a href='?service-unavailable=".$each['id']."'>Service Unavailable</a>";
+                            echo "<br><br><br><br>";
                         }
-                        echo 
-                            "<option value='".$each['id']."' ".$selected.">".
-                                $each['category']."
-                            </option>";
+                    ?>
+                <br><br><br></div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <h4>Services:</h4>
+                <?php
+                    if(count($services_data)==0){
+                        echo "No services yet!";
+                    }else{
+                        foreach($services_data as $each){   
+                            echo $each['title']."<br>";
+                            echo $each['details']."<br>";
+                            echo $each['availability']."<br>";
+                            echo $each['created']."<br>";
+                            echo "<a href='?edit-service=".$each['id']."'>Edit</a><br><br>";
+                        }
                     }
                 ?>
-            </select>
-            <br>
-            <input name="title" placeholder="title" value="<?php echo $edit_title;?>" required>
-            <br>
-            <br>
-            Availability
-            <br>
-            <br>
-            <input type="time" name="time-from" value="<?php echo $edit_time_from;?>"> to <input type="time" name="time-to" value="<?php echo $edit_time_to;?>">
-            <br>
-            <?php
-                $edit_checked="";
-                if($edit_availability=="24 HOURS"){
-                    $edit_checked="checked";
-                }
-            ?>
-            <input type="checkbox" name="whole-day" value="1" <?php echo $edit_checked;?>> Available 24 Hours
-            <br>
-            <br>
-            <br>
-            <textarea cols="30" rows="7" placeholder="details" name="details" required><?php echo $edit_details;?></textarea>
-            <br>
-            <br>
-            Available Right Now!
-            <br>
-            <input type="radio" name="available-right-now" value="1" required <?php if($edit_status==1){echo "checked";}?>> Yes now!
-            <br>
-            <input type="radio" name="available-right-now" value="0" required <?php if($edit_status==0){echo "checked";}?>> Will open soon...
-            <br>
-            <br>
-            <input type="submit" name="save-edit" value="Save">
-        </form>
-    </div>
-    
+                <br>
+                <br></div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <div class="add-services">
         <h3>Add Service</h3>
         <p style="color:#800"><?php echo $error_message;?></p>
@@ -397,6 +354,95 @@
             <br>
             <input type="submit" name="create-service" value="Create Service">
         </form>
+    </div></div>
+            </div>
+        </div>
+        </div>
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Service</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+    <div class="edit-services">
+        <p style="color:#800"><?php echo $error_message;?></p>
+        <form method="post">
+            <select name="category">
+                <option disabled selected>Service Category</option>
+                <?php
+                    $selected="";
+                    foreach($categories_data as $each){
+                        if($edit_category==$each['id']){
+                            $selected=" selected";
+                        }else{
+                            $selected="";
+                        }
+                        echo 
+                            "<option value='".$each['id']."' ".$selected.">".
+                                $each['category']."
+                            </option>";
+                    }
+                ?>
+            </select>
+            <br>
+            <input name="title" placeholder="title" value="<?php echo $edit_title;?>" required>
+            <br>
+            <br>
+            Availability
+            <br>
+            <br>
+            <input type="time" name="time-from" value="<?php echo $edit_time_from;?>"> to <input type="time" name="time-to" value="<?php echo $edit_time_to;?>">
+            <br>
+            <?php
+                $edit_checked="";
+                if($edit_availability=="24 HOURS"){
+                    $edit_checked="checked";
+                }
+            ?>
+            <input type="checkbox" name="whole-day" value="1" <?php echo $edit_checked;?>> Available 24 Hours
+            <br>
+            <br>
+            <br>
+            <textarea cols="30" rows="7" placeholder="details" name="details" required><?php echo $edit_details;?></textarea>
+            <br>
+            <br>
+            Available Right Now!
+            <br>
+            <input type="radio" name="available-right-now" value="1" required <?php if($edit_status==1){echo "checked";}?>> Yes now!
+            <br>
+            <input type="radio" name="available-right-now" value="0" required <?php if($edit_status==0){echo "checked";}?>> Will open soon...
+            <br>
+            <br>
+            <input type="submit" name="save-edit" value="Save">
+        </form>
     </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<?php if(isset($_GET['edit-service'])){ ?>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+    <?php } ?>
 </body>
 </html>

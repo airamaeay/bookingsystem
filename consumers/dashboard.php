@@ -10,9 +10,10 @@
 <html>
 <head>
     <title>Document</title>
+	<?php require "../components/bootstrap.php"; ?>
 </head>
 <body bgcolor="#888">
-    <a href="../logout.php?redirect=consumers/login.php">Logout</a>
+    <?php require "../components/header.php";?>
     <br>
     HISTORY
     <br>
@@ -41,6 +42,18 @@
                 "</a><br>".
                 $each["details"]."<br><br>";
             }
+        }
+    ?>
+    <br><br>
+    <?php
+        $consumer_id=$_SESSION['consumers']['id'];
+        $result=mysqli_query($con,"SELECT b.*,s.title FROM books b
+        LEFT JOIN services s ON b.service=s.id
+        WHERE b.consumer='$consumer_id' 
+        ");
+        $data=mysqli_fetch_all($result,MYSQLI_ASSOC);
+        foreach($data as $each){
+            echo "<a href='../services/messages.php?id=".$each['id']."'>".$each['title']."</a><br><br>";
         }
     ?>
 </body>

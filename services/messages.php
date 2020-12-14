@@ -114,43 +114,42 @@
             $status="[SERVICE UNAVAILABLE]";
         }
     ?>
-    <h2><?php echo $data['title'];?> <?php echo $status;?></h2>
-    <div class="messages">
-        <?php
-        echo $consumer.": ".$data['message']."<br><span>".$data['created']."</span><br>";
-        $book_id=$data['id'];
-        $result=mysqli_query($con,"SELECT * FROM messages WHERE book='$book_id' ORDER BY created ASC");
-        $messages=mysqli_fetch_all($result,MYSQLI_ASSOC);
-        foreach($messages as $each){
-            if($each['user_type']==1){
-                $sender=$provider;
-            }else{
-                $sender=$consumer;
+    <div class="message-body">
+        <h2><?php echo $data['title'];?> <?php echo $status;?></h2>
+        <div class="messages">
+            <?php
+            echo $consumer.": ".$data['message']."<br><span>".$data['created']."</span><br>";
+            $book_id=$data['id'];
+            $result=mysqli_query($con,"SELECT * FROM messages WHERE book='$book_id' ORDER BY created ASC");
+            $messages=mysqli_fetch_all($result,MYSQLI_ASSOC);
+            foreach($messages as $each){
+                if($each['user_type']==1){
+                    $sender=$provider;
+                }else{
+                    $sender=$consumer;
+                }
+                if($sender=="You"){
+                    echo "<b>".$sender."</b>: ".$each['message']."<br><span>".$each['created']."</span><br>";
+                }else{
+                    echo $sender.": ".$each['message']."<br><span>".$each['created']."</span><br>";
+                }
             }
-            if($sender=="You"){
-                echo "<b>".$sender."</b>: ".$each['message']."<br><span>".$each['created']."</span><br>";
-            }else{
-                echo $sender.": ".$each['message']."<br><span>".$each['created']."</span><br>";
-            }
-        }
-        ?>
+            ?>
+        </div>
+        <div id="bottom"></div>
+        <div class="refresh">
+            <a href="messages.php?id=<?php echo $clean_id."&".time()*rand(5,15);?>#bottom">Refresh</a> &nbsp;&nbsp;
+            <?php if(isset($_SESSION['providers'])&&$data['approved']=="0"){ ?>
+            <a href="messages.php?id=<?php echo $clean_id."&".time()*rand(5,15);?>&decline#bottom">Decline Booking</a> &nbsp;&nbsp;
+            <a href="messages.php?id=<?php echo $clean_id."&".time()*rand(5,15);?>&accept#bottom">Accept Booking</a>
+            <?php } ?>
+        </div>
+        <div class="type-message">
+            <form method="post">
+                <textarea name="message" placeholder="Message..."></textarea>
+                <input class="submit" type="submit" name="send-message" value="Send">
+            </form>
+        </div>
     </div>
-    <div id="bottom"></div>
-    <div class="refresh">
-        <a href="messages.php?id=<?php echo $clean_id;?>#bottom">Refresh</a> &nbsp;&nbsp;
-        <?php if(isset($_SESSION['providers'])&&$data['approved']=="0"){ ?>
-        <a href="messages.php?id=<?php echo $clean_id;?>&decline#bottom">Decline Booking</a> &nbsp;&nbsp;
-        <a href="messages.php?id=<?php echo $clean_id;?>&accept#bottom">Accept Booking</a>
-        <?php } ?>
-    </div>
-    <div class="type-message">
-        <form method="post">
-            <textarea name="message" placeholder="Message..."></textarea>
-            <input class="submit" type="submit" name="send-message" value="Send">
-        </form>
-    </div>
-    <script>
-
-    </script>
 </body>
 </html>

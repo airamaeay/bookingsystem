@@ -74,8 +74,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
+	<?php require "../components/bootstrap.php"; ?>
 </head>
 <body bgcolor="#777">
+    <?php require "../components/header.php";?>
     <h3>Service</h3>
     <h1><?php echo $data['title'];?></h1>
     <?php
