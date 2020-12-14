@@ -88,7 +88,7 @@
     <p>Since: <?php echo $data['created'];?></p>
     <p>
         Service Provider: 
-        <a href="../providers/provider?id=<?php echo $data['provider'];?>">
+        <!-- <a href="../providers/provider?id=<?php echo $data['provider'];?>"> -->
             <?php
                 if($data['account_type']=="1"){
                     echo $data['first_name']." ".$data['last_name'];
@@ -96,7 +96,8 @@
                     echo $data['company_name'];
                 }
             ?>
-        </a></p>
+        <!-- </a> -->
+    </p>
     <p><?php echo $data['details'];?></p>
     <p>Availability: <?php 
         $from_to=explode("--",$data['availability']); //array('06:00','18:00')
