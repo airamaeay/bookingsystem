@@ -120,3 +120,62 @@ na matutunan
 pwede niyo din naman iresearch
 
 
+gagawa tayo ng register page
+para magkalaman ang ating users table
+
+punta tayo sa project folder natin
+
+ang gagamitin kong code editor ay
+VSCode - Visual Studio Code
+hindi ito Visual Studio
+
+i recommend VSCode, madalas itong ginagamit sa
+mga industries
+
+
+di ko na ito iiinstall meron nako nito
+
+para mabuksan ko ang VSCode, na diretso na sa project natin
+pupunta muna ako sa project folder
+
+bookingsystem
+
+ito ay under ng xampp/htdocs
+
+pero may shortcut ako sa quick access ko dito sa gilid
+
+may htdocs ako para mabilis lang, at hindi ko na kailangang
+puntahan ang C:\xampp\htdocs
+
+
+so dito
+mag oopen muna ako ng Git Bash, sundan niyo mouse ko
+
+ayan
+tapos para mabuksan ko editor, 
+wait remember nalang ang VSCode ay hindi IDE
+code editor lang ito, medyo advance nga lang kaysa sublime
+
+so dito sa gitbash ttype ko lang ang "code ."
+then enter
+
+
+ito na yung project
+makikita niyo ito sa 
+https://github.com/airamaeay/bookingsystem
+accessible naman ito
+
+wag niyo pansinin ang browser ko kung dark
+
+naka dark mode ito
+dark mode na pala itong github XD
+
+
+any way balik tayo sa project
+
+since hindi na ito yung mga files na gagamitin natin
+ilalagay muna natin ito sa bin temporaryly
+gagawa tayo ng fresh files
+pero kukunin narin natin isa isa yung mga codes 
+para di na natin kailangan ulitin isa isang itype
+
