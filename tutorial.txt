@@ -1,0 +1,122 @@
+dito naman sa structure
+pero wait ito yung sql pang drop
+
+alter table users drop column `walang_increment_na_id`
+
+di ko na ito buburahin
+
+
+
+ngayon mag dagdag na tayo ng mga 
+columns
+
+
+
+dito sa structures
+sundan niyo yung mouse ko
+
+
+ngayon naman username
+
+varchar para sa mga text na konti
+tingnan niyo yung lumalabas na note
+yan yung mga sizes
+255 nalang or ilan??
+50 XD
+bawal mahabang username
+password pwede mahabang password
+picture 200 kasi link ito
+sa photo like http://localhost/img.jpg
+
+
+nextnaman ay created at modified, date ito
+datetime para may date na may time pa
+pag date lang, hmmmm
+
+syempre mas maganda yung may time
+
+
+hindi nato kailangan ng limit
+
+sa pinaka baba save na natin
+
+
+may error daw
+gets ko na
+
+nag error kasi meron tayong mga data sa table nato
+pag ka gawa natin ng columns,
+syempre yung mga naunang data, wala pa silang
+values para sa columns na ito
+
+pero check natin sa Browse kung ano ang nangyari
+
+wala parin yung mga columns
+
+balik tayo
+
+press back sa browser
+baka mabalikan pa natin
+wala na XD
+
+ulitin nalang natin
+pero check ko sa Structure
+
+important dito may default tayo
+
+add tayo mga columns
+
+null nalang natin lahat
+
+so ok na
+naka default lang silang lahat na NULL
+
+try natin idelete lahat ng data
+para maka pag simula tayo ng brand new new
+
+
+so gawa tayo ng new table
+
+drop muna natin itong table na users
+
+punta tayong SQL tab
+tapos drop table users
+
+wala na tayong table
+
+napindot yung enter sorry XD
+
+
+click nalang nating itong Add 1 columns after
+created Go
+
+
+tuloy tayo
+
+mag dadagdag tayo dito ng table for services na ipoprovide ng providers
+
+mag dagdag tayo ng marami
+
+
+eto pwedeng gawin nating 50 digits
+kasi di natin alam baka in the future sobrang daming services ang ipost
+
+itong TEXT, meaning ito ay malaking TEXT
+sundan niyo ang mouse ko
+tas basahin natin ang nakasulat sa description ng
+TEXT 
+
+65,535 na characters ang pwedeng isulat
+versus sa CHAR na 255 ?
+yung VARCHAR 65,535, so maganda ito,
+itanong niyo sa prof niyo bakit
+ang limit ng VARCHAR at TEXT ay
+65,535, bakit pareho. para saan ang TEXT
+at para saan ang VARCHAR ginagamit
+medyo mahabang explanation ito kaya
+mas maganda kung sa prof or sa school niyo
+na matutunan
+
+pwede niyo din naman iresearch
+
+

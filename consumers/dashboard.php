@@ -13,7 +13,10 @@
 	<?php require "../components/bootstrap.php"; ?>
 </head>
 <body bgcolor="#888">
-    <?php require "../components/header.php";?>
+    <?php
+        $active_tab="dashboard";
+        require "../components/header.php";
+    ?>
     <br>
     HISTORY
     <br>
