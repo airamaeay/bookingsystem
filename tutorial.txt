@@ -179,3 +179,1398 @@ gagawa tayo ng fresh files
 pero kukunin narin natin isa isa yung mga codes 
 para di na natin kailangan ulitin isa isang itype
 
+yan nalagay ko na sa bin, punta tayo sa code editor
+para makita natin na nagchange narin
+
+ipupush ko na muna ito
+
+
+irefresh na natin
+
+
+yan ok na
+
+
+so sa next na video gawin natin yung register
+
+
+gawin na natin yung register
+
+
+una yung config
+
+
+wag niyo muna pansinin itong mga codes,
+gawa muna tayo ng bagong config.php
+meron na tayong 2 files
+
+
+buburahin din natin in the future yung folder na bin,
+but for now, stick lang muna tayo sa pag copy ng codes
+
+
+ito muna yung unang isusulat
+
+
+wait bago ang lahat, ito palang pangalawang file, ito 
+ay ang tutorial
+
+
+ito mismong tinatypan ko na file
+
+tutorial.txt
+
+
+
+pag ka pala nandito kayo sa VSCode, 
+at bagong install lang kayo, iba ang kulay nitong mga codes
+purple sakin pero try natin icheck ang ginagamit ko
+Ctrl-Shift-P
+Color Theme
+One Monokai ang gamit ko. 
+iinstall niyo nalang kung gusto niyo rin ng monokai
+so dito gagawa tayo ng connection sa database
+
+
+dati mysql
+ngayon mysqli
+next time pdo na ang gagamitin niyo or whatever available
+
+
+pero since ito ang inabutan kong natutunan niyo,
+mysqli gagamitin natin.
+
+
+mysqli_connect...
+
+
+pano kumonect?
+connect
+
+
+mysqli_connect
+ito ay function, may mga parameter na fifill upan
+check ko lang ha di ko memorize e
+
+
+so yan wag kayo malito
+host
+username
+password
+database name
+obvious naman na ang host ay 127.0.0.1
+or localhost
+wait check ko
+
+
+ang host ng server na ito ay 127.0.0.1
+
+
+naalala niyo? itong XAMPP
+meron tayong inoopen na dalawa?
+
+
+Apache
+MySQL
+
+
+so itong Apache, server ito sinabi ko na sa inyo diba
+ano ang server na ginamit niyo sa project na ito?
+Apache
+ano ang database na ginamit niyo sa project na ito?
+MySQL
+
+
+so itong Apache nagrurun ngayon, server ito
+na nag rurun at ang host niya ay 127.0.0.1
+or localhost
+punta tayo sa browser
+punta tayo sa localhost
+pero bakit may localhost/dashboard kagad?
+htdocs check natin
+nandito tayo sa htdocs
+tapos makikita natin ang index.php
+ito ang unang pinupuntahan, tapos
+ihehead nalang ito sa dashboard
+
+nasan ang dashboard?
+ito ang dashboard
+
+
+kaya itong 
+http://localhost or
+http://127.0.0.1 itong mga ito ay nakatingin sa
+htdocs
+
+
+kung ano meron sa htdocs, yung ang localhost/bookingsystem
+xampp\htdocs\bookingsystem
+localhost\bookingsystem,
+pareho lang, nga lang yung isa, nagrurun inside server
+
+
+kaya itong Apace na may host
+kung coconnect man tayo sa database,
+at need ng host, ang host ng apache/server 
+127.0.0.1 or
+localhost
+
+ano naman ang db user?
+database username always root (by default)
+password? (by default, wala)
+pag binuksan natin ang phpmyadmin
+di naman tayo nirerequiran ng username at password
+kasi diretso na tayo sa phpmyadmin, na may access na agad
+I'm not sure how this works, pero mukhang nakalogin na kagad
+ito ng root 
+tingnan niyo dito
+root@localhost
+kung ang gamit niyo ay sqlyog, sa pagkakaalala ko,
+pwede kayong gumawa ng ibang username at password
+para sa mga databases niyo
+so lalabas itong root, kahit sino sa server na ito, maaaccess
+ang databases na nakasave dito
+so
+
+ok lang yun XD
+wala namang ibang andito ako lang
+balik tayo, sorry di parin tayo maka gawa ng register
+
+pero try natin ituloy ngayon
+
+ang gamit natin so far
+host localhost
+username root
+password wala
+database name easy alam naman natin
+onlinebookingsystem_db
+palitan na natin
+
+
+ganito ang mysqli_connect
+
+4 parameters
+host user password database
+pag ganyang kahaba, pwede natin ayusin ng konti
+para medyo maganda sa mata
+
+yan mas maayos, at pwede pa natin malagyan ng 
+sarili nating comments here
+
+press tab
+
+kulang pala ako ng semi colon
+kaya may pula
+
+pareho lang ba ito dun sa config sa kabila?
+
+yup
+
+gumamit lang tayo ng kaunting variables
+
+or die?
+
+bakit may or die?
+kasi catch yun
+kung hindi magsuccess yung pag connect,
+kailangan mo magreturn ng error
+
+so itype natin or die(then sa loob nito, yung function)
+na gusto natin ipakita which is mysqli_error
+
+lahat ng ito isave natin sa isang variable na pwedeng gamitin
+kahit saan
+
+$connection
+
+so meron na tayong connection
+
+pwede na natin itong gamitin
+
+wag kayo maconfuse, yung word na connection
+pwedeng gawagawa lang natin
+
+kaso medyo mahaba
+dapat maikli lang kasi gagamitin ito ng maraming
+beses so dapat maikli lang
+yan
+dito sa maikling ito, dito nakalagay na ang connection
+na kapag nag fail, automatic may catch,
+yung error
+actually die ito
+kaya pag nagerror ang database, hanggang dito nalang ang codes
+try natin kung tama sinasabi ko XD
+punta tayo sa config.php
+
+try natin isara ang database by stopping mysql
+refresh
+
+galit na galit gusto manakit
+
+anyway try naman natin ibalik muna
+tas mag dag dag tayo ng echo sa taas
+
+sorry nagloko keyboard ko
+madalas to mangyari
+
+kunwari ok na ulit yung database
+
+wait lagyan ko br br br
+
+
+again pag di nagconnect,
+yung die, hanggang dun nalang ang pag basa
+ng program sa codes
+lahat ng kasunod ieexit na at hindi na babasahin
+
+try na natin ifail ang database
+
+so nabasa parin yung echo sa taas
+pero nagthrow na ng error message itong die
+and it dies
+nag exit na at hindi na nakita yung ibang codes
+
+so yun lang naman ang ibig sabihin ng "or die"
+
+try nating pag laruan
+gagawa ako ng sarili kong function
+kapalit nitong mysqli_error
+
+so dapat pagnag error, yung function ko na ang irurun
+
+so sana gumana
+pag nag error, dapat yung echo ko ang irurun
+
+
+start muna natin, check natin
+
+so yan may database then putol
+refresh
+
+so ayun, nairun ang error kong sarili
+
+pero saan galing itong error sa taas? galing yan sa
+mysqli_connect. since nagfail siya, gumawa na siya agad
+ng sarili niyang error.
+where sa atin naman nag run tayo ng custom function 
+kung ano ang pwedeng gawin kapag nangyari ang error
+or fail
+
+burahin na muna natin yung mga di kasali
+
+pag may tanong kayo icomment niyo nalang
+
+ang mysqli may sariling function na mysqli_error()
+any way iwan na natin yan,
+
+may magagamit nanaman tayong $maikli na nandito ang 
+connection
+
+try natin gumawa ng query
+mysqli_query
+query ito yung INSERT INTO
+
+etc
+
+so gawa tayo ng query
+
+may 2 parameters
+connection at query
+
+medyo mahaba na
+ayusin muna natin
+
+ano pa?
+nakapatay pala mysql
+
+itong mga back ticks ` ay importante lalu na
+pag may kakaibang characters. in the future
+makakasalubong natin itong mga ito,
+pero try natin alisin muna
+mga back ticks
+kagaya niyan, yung password biglang nag red
+meaning, may function siguro yun sa sql
+kaya siguro dapat lagyan ng back tick
+pero i try muna natin ng wala mamaya makikita natin
+ito important na may single quote
+or double quotes,.... kung single quote ang 
+gamit dito sa buong query
+
+sundan niyo ang mouse ko
+
+so yan kailangan single quote
+
+
+for username aira
+for password 123
+picture blank muna
+created NOW()
+ang NOW() ay sql function para ireturn ang 
+date at time
+
+kung mapapansin natin red yung NOW
+edi may function
+
+siguro yung password din na red ang kulay.
+pero itry natin irefresh ang page na to na config.php
+para marun ang query na ito. malay natin baka gumana
+
+
+ayan wala pang laman
+
+ok na na refresh ko na
+
+try natin icheck
+
+ayan meron na
+
+pero woops yung id ay null?
+
+icheck natin dito sa structure
+
+mali itong NULL default sorry
+so ichange natin
+
+yung AI siguro ang gusto kong iclick
+pero Null ang na click ko
+yan save na
+
+yan id 1 na
+
+try ulit natin i refresh
+check natin
+
+yan ok na, pero pareho
+
+at makikita natin na sunod sunod yung 
+AI o Auto Increment ng id
+
+try naman natin ihiwalay ang query natin
+as variable
+
+same lang ito
+gumamit lang tayo ng variable
+
+
+anyway palitan na natin yung maikli
+ng mas maikli
+$con short of $connection
+
+yan ok na
+
+itong mysqli query pwede natin gamitin sa ibang page
+
+pero dapat alam muna natin pano 
+nag coconnect ang dalawang page variables
+
+2 palang ang ating files
+
+burahin ko muna ang mga di natin kailangan
+
+ito lang talaga ang kailangan natin sa ngayon
+yung $con
+
+gawa tayong register.php
+tas icheck natin sa browser
+obviously wala naman tayong makikita
+
+balik tayo sa config.php
+
+wala narin tayong makikita kasi inalis na natin
+
+try natin mag echo for example
+
+this is config echo ito from config.php
+punta tayo sa register.php
+
+wala dito sa register.php yung sinulat natin
+
+try natin irequire sa register
+yan ganyan lang, then irefresh na natin
+
+ito yung same echo na nasa config
+ngayon ay nasa register na
+
+kasi naka require na yung file na config dito sa register
+kaya para narin natin inirun yung file na config
+
+or sa madaling sabi, 2 file ang inirun natin, combined
+
+itry naman natin ang pagbasa ng variables
+galing sa config
+nandito tayo sa register
+
+dito sa config
+gagawa ako ng echo
+pero ilagay natin sa variable
+
+pero wag natin i echo dito sa config
+i echo natin sa register, tingnan natin kung mababasa
+
+dito meron tayong echo na hindi dinefine 
+sa page nato
+but since nirequire natin yung config, may hope tayo
+na may value ang variable na $variable_na_testing_lang
+
+get niyo?
+
+echo $testing_hahahaha ano ang lalabas?
+
+undefined daw
+
+di kasi natin idineclare
+ilipat natin sa config.php
+
+sana medyo gets niyo na kung pano nagdudugtong ang dalawang file
+pano nag cocombine as in required
+require "config.php"
+
+pano kung nasa folder ang config?
+
+meron tayo dito charot folder
+
+dun natin nilipat pansamantala ang config.php
+
+itry natin irefresh ang register
+
+yan mali na
+
+so dapat alam natin kung nasaang folder
+
+ganto dapat
+
+ngayon gawin na natin ayusin natin yung codes
+
+medyo marami na palang examples
+
+atleast medyo may idea na tayo na sa register.php
+file na ito, pwede na natin gamitin ang $con kasi
+nirequire natin yung file na kinalalagyan niya
+
+
+gawa muna tayo ng inputs
+form
+
+so itong tatlo lang muna saka pala picture
+
+kung mapapansin niyo wala tayong html
+
+actually meron
+automatic na itong nilalagyan ng browser
+check natin
+
+auto matic na diba
+
+pero syempre
+since nagmamadali tayo kaya lang tayo nag
+gaganito na <form> kagad
+
+pero sa real works, dapat may <html> <head> etc etc
+
+F12 pala ang pinindot ko para makita ito
+iciclick ko lang ulit ang F12 para isara ito
+
+ok try natin isubmit
+
+wala
+kasi hindi pa naman tayo nag lalagay ng 
+pwedeng mangyari
+
+once na naisubmit na ang form na ito
+dapat icheck natin
+pero saan?
+saan isusubmit?
+<form action=" saan?"
+
+sample lang ito, gawa tayo ng recieve form
+
+itong recieved-form.php
+walang laman kundi text lang.
+
+wala naman talaga siyang gagawin,
+gusto lang natin macheck na pag nagsubmit tayo kunwari,
+dapat dito sa file na ito pupunta
+
+paano
+ganito dapat
+
+itype lang natin ang file name
+pero syempre kung nasa ibang folder,
+like kanina,
+siguro
+something like this
+action="new-folder/recieve-form.php" or
+action="charot-folder/recieve-form.php"
+
+mga sample lang yun.
+pero since ang pupuntahan na file ay nasa same folder lang,
+ok na yang recieve-form.php
+
+try natin isubmit
+ok lang kahit walang laman
+check natin hindi gumana
+
+di ko pala narefresh
+balik tayo
+
+dito makikita natin na kahit walang laman,
+nagsesend
+pwede natin ibawal yun..
+rule na dapat may laman ang mga inputs
+
+dito lagyan lang natin ng required attribute
+
+try ulit natin mag submit ng walang laman
+
+meron na siyang note
+
+nga pala, yung password
+pag ang type="text" kita ang mga text
+pag type="password" makikita dito ang password
+I mean naka hide, pero ang browser na ito, may mata/eyes icon
+para makita ang password
+pero itry natin sa facebook ang 
+ibig kong sabihin
+
+nag F12 ako
+
+dito for sure gumamit si FB ng type="text" at 
+type="password"
+
+iedit natin itong page
+sundan niyo ang mouse ko
+pag nag blue yung icon nayun,
+makakapili tayo ng html
+element na gusto natin within the z-index
+pinili ko itong password
+makikita natin itong codes ni FB
+input type="password"
+baguhin natin, gawin natin type="text" tapos click lang
+anywhere
+so ayan nakita na yung password kasi naka text na ang type
+
+ngayon gawa tayo ng sasalo ng object natin 
+itong form na ito, object kasi ito
+na isinesend
+
+so try natin ang method na get
+ito ang isa sa pwede nating gamitin
+pero maglagay muna tayo ng name
+bawat input pwede lagyan ng name
+or else hindi mababasa or masasama
+sa form object
+
+madali lang maglagay ng name
+
+try natin yung medyo iba,
+para mas clear
+user, pass, photo at reg
+
+ang mga ito ang magiging index ng object na ito
+
+anyway wag niyo muna isipin ipapakita ko muna ang pwedeng
+mangyari after natin isubmit
+ng may names
+at naka method="get"
+
+di ko pa pala na refresh
+
+dito sa taas tingnan niyo
+recieve-form.php?
+user = maemae&
+pass = 123&
+photo = C%3A%2Fpicture.jpg&
+reg = Register
+kung hihimayhimayin... kita niyo? ito yung sinend natin
+
+pero kung method post
+
+
+refresh muna natin
+wala, wala sa url, pero nasend yun...
+hindi nga lang makikita (hidden)
+useful ito para sa mga forms na may password
+like login register
+always use method="post" kung may password
+or mga maseselang info eg debit info billing info etc
+
+pag get method="get" makikita sa url ang mga nasa form
+pwede to gamitin sa mga forms like
+searching, google search, method get ito
+
+ito ang kanilang url,
+may question mark tapos may sxsrf = adfgdafgdafgdafgdag
+<input name="sxsrf" value="adfgdafgdafgdafgdag">
+ganyan ang nangyayari
+
+balik tayo sa get
+
+so automatic nagkakaroon ng question mark ?
+recieve-form.php ? user = hello_username
+then after saka lang ilalagay ang index(user)
+equals(=) value(hello_username)
+at meron pa (&) pass=123 at meron pa(&)
+photo=picture & reg=Register
+
+I hope gets niyo kung pano nagwowork
+at yung kaibahan ng post sa get
+ang gagamitin natin dito sa form na ito
+since register ito at may password,
+dapat method="post"
+ayaw natin makita at masave sa history ng browsers ang
+mga password ng mga tao
+
+
+i try na natin ireceive ang 
+wait ano ba spelling nito
+ok wrong spelling ako
+
+so i try na natin i receive ang object
+sa receive-form
+
+dito mapupunta yung object na manggagaling sa register
+since yung action ng form duon ay nakapangalan dito
+
+ano name?
+
+
+so ito ang mga pwedeng gamitin na variables
+pag nareceive niyo na ito dito, bahala na kayo kung pano niyo
+gagamitin
+
+try natin i echo
+
+pag post i mean
+
+method="post" dapat $_POST hindi natin ito gawa gawa
+itong $_POST ay gawa ng php
+
+$_POST['user']
+
+kung ano ang nakasulat sa name sa input
+$_POST['pass'] ito ang password
+
+
+try naman natin ang GET
+
+method="get"
+
+syempre sample lang ito
+
+dito sa receive $_GET
+
+
+yan yung get obvious naman sa url sa taas
+kung ano ang maeecho natin
+
+balik na natin sa post
+
+kung nagtataka pala kayo pano ko napagsasabay
+sabay yung edit, click Alt-MouseLeftKey
+
+ngayon try natin custom get
+
+dito sa register
+ try natin mag lagay ng sarili nating question mark
+ saka object
+
+ so nabasa parin yung try-lang-ha
+ nasa taas = ok ok ok ok
+
+ pero paano natin i eecho dito sa page nato?
+ edi $_GET
+
+ pag may questions pacomment nalang
+
+ tuloy  tayo
+
+ I hope gets niyo na to
+
+ ngayon session naman ang gawin natin
+
+ pag gagamit kayo ng session, make sure
+ naka start ang session
+ session start
+ at dapat lagi ito nasa taas
+
+ pag magdedestroy kayo ng session
+ session destroy
+
+ pero need parin na nag session start kayo
+
+ so yung session start muna
+
+ dito sa baba gawa tayo ng variable ng session
+ di natin ito gawa gawa, sa php ito galing
+
+ yung kahit ano, walang pinanggalingan yun
+ dyan natin unang idineclare
+
+ pwede kayong gumawa ng kahit anong gusto niyong 
+ name para sa session
+ tapos may value
+ pwede na natin ito i echo
+
+ alisin muna natin ang mga post get
+
+ ngayon try naman natin sa register
+ nandito kasi tayo sa receive form
+
+ bakit may error?
+
+ kasi wala pang session start
+
+ yung session, nabasa niya kahit hindi natin 
+ idineclare sa page nato
+ pano yun nangyari?
+
+ kasi na declare na kanina, nung nagpunta tayo sa 
+ receive form
+
+ balik tayo sa receive form
+
+ icheck natin sa receive form
+
+ kulang underscore
+
+ try naman natin tawagin sa register
+
+ so nababasa sa lahat ng page na may session start
+ ang isang session variable na nadeclare na
+
+ gets? kung di niyo gets ulitin niyo muna itong video
+ or comment for question
+
+
+ ngayon try ulit natin
+
+ dito sa receive form gawa tayo ng pangatlo
+
+ tapos punta agad tayo sa register
+ wag sa receive form, sa register na kagad, yun
+ ang irefresh natin
+  pero i echo na natin ang third sample dun
+
+so bakit kaya undefined?
+
+kasi hindi naman talaga nadefined yung variable.
+isinave lang naman natin yung file na receive form
+pero hindi natin inirun
+
+ito nakasave na. pero sa website
+hindi naman talaga natin ito inirun
+edi baliwala din, hindi narecord sa sessions yung 
+variable na yun at ang value nun
+
+pero try natin irun yung received form
+saka tayo bumalik sa register
+
+saka lang mareread
+
+gagamitin natin itong session in the future
+
+
+alisin muna natin itong mga session
+
+kung may tanong kayo pacomment nalang
+
+
+pwede niyong itanong bakit walang ending itong php
+
+pero gumagana kanina pa
+
+di ko rin alam XD siguro dahil php file naman siya
+
+so gawin na natin yung query dito since ito naman ang
+magrereceive
+
+punta muna ako sa phpmyadmin
+
+isa ito sa mga gusto ko sa mga code editor 
+pwede mag transparent
+
+
+wala tayong reference ng $con
+wala tayong connection dito
+need natin yung config.php
+require "config.php"
+
+ok, since alam nating saluhin yung mga nasa register,
+gawin na natin, saluhin natin
+
+hatiin natin ang window
+
+nasa left ko ang receive form,
+nasa right ang register
+
+inalis ko muna yun sample lang naman yun
+
+itong config hindi natin kailangan sa register
+
+ang gawin natin, copyahin na natin yung mga names
+
+post kasi method post
+
+mas maganda kung isesave natin ang mga post na ito
+sa variables na mas maikli ang names
+
+super helpful nito
+
+ngayon, ilagay na natin sa query
+
+ok saved
+itry na natin
+
+ok na, pero may error tayo
+
+itong id 5 blanko
+kasi nirefresh natin kanina
+nung nirefresh ko, di ko muna pinansin
+
+so may mga warning ito na hindi daw kilala ang 
+mga array key na ito, reg user pass photo
+kasi hindi naman natin nasend galing sa register,
+kaya walang value
+
+or wala talaga
+
+dapat kasi nag register muna, tapos, saka mapupunta dito
+sa received form
+
+hindi yung nagpunta kagad ako sa receive form tapos nirefresh ko nalang bigla
+
+pano kung may mga user na napunta dito, tapos,
+narefresh bigla ng di sinasadya?
+pano maiiwasan ito?
+well hindi naman nila kasi intended na mag register, 
+trip lang siguro nila mag libot sa website
+tapos mag refresh ng kung ano ano
+pero di nila intent na mag register
+wala silang ganun
+
+para maiwasan ito
+gamitin natin yung reg kanina
+
+ito yung button or submit button right?
+mag iif statement tayo
+
+hindi naman natin ito gagamitin sa query so iremove na natin
+yung declaration nung $reg
+
+so malalaman lang na ang intention mo talaga ay 
+magregister kung yung $_POST['reg']/submit button
+mo ay nakaset -> meaning pinindot
+
+so pagpumunta sa page nato at hindi nakaset ang
+$_POST['reg'], edi hindi ito nanggaling sa register
+page
+kaya kahit mag refresh ng magrefresh dito, kung
+di galing sa register at di pumindot sa submit,
+walang mangyayari
+
+gets niyo ba? if nakaset yung reg na syang submit button
+saka lang irurun ang mga functions na ito
+na nasa loob nung if argument
+so ilagay natin is set?
+
+itong mga spaces, doesnt matter
+pinapakita ko lang itong php function na isset
+
+kung nakaset ba??
+
+then parenthesis, ang alin?
+
+nakaset ba ang $_POST['reg']?
+
+gets niyo?
+
+
+ok itry na natin
+
+punta tayo sa page na receive form
+
+refresh
+check natin sa database
+
+ok clean
+walang pagbabago
+
+ulit ulitin natin
+
+ok parin
+try natin mag submit sa register
+
+ok ok!
+
+
+ngayon ilagay natin yung receive form sa register mismo
+ayaw nating dumami masyado files natin
+
+dito dapat magclose tayo ng php
+
+dahil html ang kasunod na codes,
+sa kabila since wala namang ibang html codes
+na kasunod kaya ok lang na walang 
+ending ng php code
+
+burahin na natin ito
+
+anyway,
+
+paano itong action?
+wala na kasi itong file
+pwede bang register.php?
+
+mauubusan nako ng pangalan kakatest XD
+
+ito palang gagawin natin ittry natin isend itong form
+dito din mismo, kasi nandito yung 
+query, at nandito rin naman yung config
+so walang nabago sa mga codes na ito, inilipat lang natin
+kaya lang once isinend na natin
+make sure dito sa page na ito rin mag sesend
+itong file din na ito ang magrereceive
+itry natin itong action="register.php"
+
+ayun gumana na!
+
+may mas madaling paraan
+
+pag inalis natin ang action attribute
+meaning nito, sa page na ito mismo isesend,
+like action="register.php"
+pero no need na isulat pa, kasi
+pag walang action attribute, edi sa sarili
+niya rin siya mag sesend
+
+next pag nag register na tayo, ihead natin
+ang user sa dashboard ooooooopS!
+wait alamin muna natin kung successful ang isang
+registration
+itong query nato dapat mag return sa atin ng success
+or i ask natin, kung gumana ba itong query
+
+sa ending nitong query, dun tayo mag if
+after ng query
+mag else narin tayo
+
+try natin
+
+gumana daw
+
+try natin putulin ang connection sa db
+may config nga pala dito, naalala niyo? nag die na siya
+
+anyway, gawa tayo ng paraan para mag error XD
+
+dito sa database, sa structure
+ichange natin ang username
+
+ito pala hinahanap ko, itong unique
+try natin iunique ang username
+burahin muna natin may doble daw na data e
+
+meron nga
+
+nirename ko nalang
+
+so bawal na ngayon mag save dito sa database
+pag ang username ay may kapareho
+
+try natin ilagay ang aira as username para mag error
+see if gagana yung if else natin kanina
+
+dapat nyek na ito
+
+so ayan hahahah
+try natin unique, walang kaparehong username
+
+pag may tanong pacomment nalang
+
+para malaman natin na may kapareho pala
+icheck muna natin ang database
+
+ang username natin ay dapat unique, wait try ko lang mag
+vardump
+
+pwede pala natin itong gamitin
+ang var dump ay parang console.log sa javascript
+
+idiscuss ko muna itong var dump
+
+gagawa ako ng simpleng variable
+tapos ivar dump natin
+
+dapat pala nag submit muna
+
+ilabas muna natin
+
+so ganito ang var dump
+alam niyo naman ang meaning ng array diba?
+try natin ivar dump ang array
+
+yung kanina ulit
+
+string(3) meaning ng 3 may tatlong characters sa loob
+ng string 1=>o 2=>k 3=>!
+gets?
+punta tayo sa array
+
+eto array(3)
+meaning? may tatlong laman yung array
+0=>hello 1=>ako 2=>buduy
+tapos may nakikita kayong string right?
+string(4) "helo" kasi 4 ang chars nito
+gets?
+
+try naman natin ganito
+ano kaya ang lalabas?
+
+yan kung ano yung index or key yun ang lalabas,
+anyway alam niyo nanaman dapat yan
+
+so ang key nitong "ako" ay 1
+try natin palitan ang mga keys
+gawin nating letters
+instead of 0,1,2,3,4,5,6
+gawin nating a,b,c,d,e,f,g
+
+so ganito yan
+lalagyan natin ng sarili nating key
+dito dapat string na, hindi na number
+
+try natin var dump ulit ang array
+
+kita niyo?
+
+gets niyo ha
+
+
+burahin ko muna itong mga samples
+
+ivar dump muna ulit natin sakaling mali ang query
+like may kaparehong username
+
+so itong na var dump natin ay hindi array nor string
+object ito try natin ang key na error
+sundan niyo ang mouse ko
+
+since mahaba o marami itong sulat, pagandahin muna natin sa php
+para mabasa natin ng maayos
+
+burahin din natin mamaya
+
+yan mas maayos na tingnan
+so ano kailangan natin?
+yung ["error"]
+icomment lang muna natin
+
+dito sa register, pag nag fail ulit,
+itry natin kunin yung ["error"]
+
+bawal daw na gamitin ang object as array
+like this $con['error']
+
+so itry natin yung ganito
+
+yan nakuha na natin
+$con->error
+
+pag array []
+pag object ->
+
+so iecho na natin ito
+
+wag niyo kalimutan na ang object na ito ay ang
+mismong connection $con, dyan makikita ang 
+error ng query
+
+palitan natin ito
+
+
+pag success ang pagreregister, need natin dalhin sa dashboard
+pero gawa muna tayo ng dashboard
+
+ito na yung dashboard page
+
+ang mali sa page na ito ay
+hindi dapat ito napupuntahan hanggat di pa nagreregister
+or nag lologin
+any way
+idiscuss natin ito sa ibang pagkakataon,
+balik tayo sa register
+
+ito yung register
+pag success, ihead natin ito sa dashboard
+ganyan ang syntax nito, at sa url naman
+kung nasa loob ng ibang folder, sundan niyo mouse ko
+
+getS?
+
+tapos exit
+
+wala na dapat irun sa page nato after ng header
+hindi ito required gawin pero ito ang
+gusto nating mangyari
+kasi totoo naman na wala nang codes sa baba
+after ng header na gusto nating i run pa
+
+pag nag success ang registration, ipapakita 
+paba natin ang form? need pa ba yun?
+hindi na
+
+so mag exit na tayo, making sure na wala ng
+codes na mag loload
+
+parang die lang ito
+pero walang function
+just exit
+
+successful at nag head sa dashboard page, gaya
+ng ating inaasahan
+
+
+ngayon gagawa naman tayo ng login
+sa login, dapat lang naman nating icheck
+kung ang input ng user ay tama
+username at password
+
+wag muna natin i header location sa dashboard
+icomment muna natin ito
+
+try natin itong aira 123
+
+login.php
+
+walang nangyari?
+
+naka get pala tayo
+ang default method kasi nito ay get
+
+ayan gg na
+
+mali, di katulad sa name attribute
+
+ok na
+
+nako po
+
+gumana naman kaya lang nag ok parin??
+ganito yan
+nag query tayo, alam natin wala ito sa database
+so nag return siya ng 0 zero
+pero atleast nag return siya
+so yung $success variable ay ok!
+
+anyway i var dump natin ang $success this time
+para makita niyo itong object na nirereturn
+
+tingnan niyo sa taas
+yung num_rows ay 0
+
+try natin itama
+
+naging 1 na
+
+so gamitin natin ang num_rows
+
+echo natin
+
+gets?
+
+larger/greater than zero
+
+pero ang ibig sabihin lang naman natin sa argument na ito
+ay 0 ba or 1?
+$success->num_rows 0 or 1?
+
+sa programming gaya ng php
+pag 0 katumbas ito ng false
+1 katumbas ng true
+
+0 false
+1 true
+
+kaya kahit wala na itong > 0
+
+meaning 
+if(1)
+
+gets?
+
+kung 1 ang sagot, meron, edi true
+so yung buong arg ay true
+
+kita niyo walang silbi yung con error
+
+mag lagay nalang tayo ng ibang message
+
+try na natin ang header na to
+
+gagamitin na natin yung session
+
+pag nag log in tayo sa facebook, or kahit 
+saan, hindi na natin pwedeng i access ang login
+
+may login page sa facebook,
+instagram, twitter, tiktok
+imaginin niyo nalang nasa login page kayo
+tapos nag login kayo, mapupunta kayo sa feed
+or kung saan,
+
+basta pag nag log in kayo, at successful,
+hindi niyo na mapupuntahan ang login page
+
+dito sa website natin di pa natin yung nagagawa
+
+nakaka punta parin ako ng login page at kahit irefresh
+nandito parin ako
+
+dapat di na to accessible
+same idea rin sa dashboard
+dapat ang dashboard na ito ay hindi napupuntahan
+kung hindi nakalogin
+
+for example, yung conversation niyo sa messenger
+sa facebook, hindi yun maoopen kahit 
+dumerekta kayo sa page ng messages
+kung hindi kayo nakalogin
+so dito sa dashboard page natin,
+lahat ng user na magvivisit dito at hindi nakalogin
+kailangan header location sa login
+tama?
+
+so dito dapat mapunta lahat ng mga user
+na nagvivisit ng mga page na 'pwedeng ivisit pagnakalogin'
+
+so gagamitin natin ang SESSION
+kasi ang session lang naman ang may kakayahan 
+or I don't know kung may iba pa,
+na nababasa yung variable throught out the server
+basta naka session start
+
+ito yung dashboard page
+kailangan paghindi pa naka login
+i header location sa login tama?
+
+pano natin malalaman kung nakalogin?
+
+kailangan may variable tayo ng session
+na dinedeclare sa login... gets?
+
+alam ko mahirap ito igets
+
+pero ganito nalang,
+kunwari nasa Enchanted Kingdom tayo
+bago ka sumakay ng rides, diba may chinecheck?
+chinecheck kung may ticket ka
+may ticket ka? o wala?
+pag wala, bawal sumakay ng rides
+san makukuha yung ticket?
+sa entrance malamang XD char
+
+sa entrance, need mag bayad para ka mag ka ticket
+pag nasa loob ka na ng EK, at bago sumakay ng rides,
+chinecheck ang ticket
+
+may ticket ka? kung meron, meaning, 
+dumaan ka sa processong nagbayad ka sa entrance
+
+gets ? concept?
+
+so need lang ng ticket.
+dito ang entrance natin ay ang login.php
+so dito tayo mag bibigay ng ticket
+sa dashboard, dun tayo mag checheck ng ticket
+sorry di ko nalagyan ng exit
+
+bago tayo mag header location ibigay na natin yung ticket
+
+ok lang kahit anong value for now
+
+ngayon itong ticket na ito, ichecheck natin
+sa dashboard
+
+kung naka set itong ticket for whatever value.
+ano ilalagay natin sa gitna?
+
+since mukhang wala pa naman tayong ilalagay
+pwede nating gawin yung kabaliktaran
+
+ililipat ko ito
+
+may exclamation mark (not) sa unahan
+meaning kabaliktaran yung meaning ng argument
+
+if ( not isset( $_SESSION['ticket'] ) )
+gets?
+
+di na natin ito need
+
+ngayon, sa ngayon, wala pa ito kaya i expect na natin
+na pag nag visit tayo dito sa dashboard
+dadalhin tayo sa login
+
+mabilis lang yung pang yayari
+nasa dashboard tayo tas nilipat kagad tayo sa login
+try natin mag echo lang muna
+
+punta tayong login tapos try natin mag login
+supposedly mag sasave na ito ng session na ticket
+
+my bad di pa naka start yung session
+
+balik tayo sa login
+
+wala na yung note
+meaning itong argument na ito ay true na
+may ticket na
+so ibalik na natin yung header
+
+pano pala tayo mag lologout?
+gawa tayo ng isang page for logout
+
+ganyan lang tas header na
+
+di natin to need
+walang code na kasunod literally
+
+ngayon try natin pumunta sa dashboard ng walang ticket
+
+pero dapat naka head na sa login
+
+sorbrang seemless lang nito
+di makikita pero naka punta siya sa dashboard
+tas niredirect siya pabalik sa login
+so gets na yan ha
+comment nalang pag may question
+
+ngayon balik  tayo sa login
+nakakabalik parin tayo kahit may session na
+dito naman tayo mag check
+
+dito sa entrance
+kung may ticket kana syempre hindi ka
+na dapat pagbilhan pa ng ticket
+so isara natin ang page na ito
+sa mga may ticket na
+ibabalik lang natin sa dashboard
+
+mali
+di pala ibabalik
+
+basta kahit sinong mag visit dito, at kahit saan pa sila
+nanggaling, sa dashboard nalang natin dalhin
+kapag nag punta dito at may ticket / session na pala
+
+i refresh natin
+
+nag punta agad sa dashboard
+try natin pumunta ulit sa login
+
+so yan, gets na?
+sa dashboard para mas madali tayo makapaglogout
+mag lagay tayo ng link
+
+kung may question pa comment nalang
+
