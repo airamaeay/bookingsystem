@@ -1574,3 +1574,2137 @@ mag lagay tayo ng link
 
 kung may question pa comment nalang
 
+mukhang ok na tayo sa php 
+baka may madagdag nalang as we go on,
+pero ngayon gagamit na tayo ng bootstrap
+css ito css library
+
+meron ako ditong bootstrap na admin natago ko pa
+
+di ko alam kung dinownload ko ito,
+mukhang bago lang e
+parang nadownload ko nga
+i download niyo nalang din,
+sa startbootstrap
+punta kayo ng google, start bootstrap sb admin download
+
+mukha namang maganda to,
+gamitin natin
+
+itong lahat ng ito i copy lang natin sa project natin
+pero mag commit muna ako
+
+wala namang kaparehong file name siguro
+
+kumbaga ito na ang template natin
+
+login.php vs login.html
+
+itong function ng login.php
+icopy lang natin sa login.html
+kailangan pala natin irename
+yung existing natin na login.php
+since di na natin gagamitin, xlogin.php nalang
+check natin
+
+maganda naman XD
+
+hindi to dapat email
+
+di natin need ng id,
+pero di natin ito dapat burahin, kasi baka may function ito
+sa bootstrap
+ctrl-shift-F
+
+mukhang wala naman
+
+pwede na siguro natin ito pagbuburahin
+
+na save ko aas html
+mali
+
+alisin natin yung gmail facebook at iba pa
+
+wag natin totally burahin 
+baka magamit natin in the future
+
+inalis natin yung remember me,
+kasi wala tayong ganung function
+
+ngayon dito sa username password,
+ang kulang nalang dito ay yung attribute na name
+
+medyo mahirap to pero
+itry natin iconvert ito sa input type="submit"
+
+yung class na attribute, yun ang nag dedefine kung anong 
+styles ang meron itong element
+
+so icopy natin yun
+
+perfect!
+
+naka get
+
+kala ko perfect XD
+
+nag rerequire ito ng picture daw
+so sige try natin lagyan
+
+paliliitan ko sana
+pero ginawan ko na ng paraan
+
+dito kay bootstrap
+di natin kailangan ng maraming br br br <br>
+
+may class ito for spacing
+
+margin-top small,large,medium,xl,
+try natin,
+mt-md margin-top medium
+
+wala atang ganto
+mt-1 nalang
+
+parehong wala
+
+itong home serv gagamitin natin ng 
+maraming beses sa website
+
+need itong ma dynamic
+
+so sa config ilagay natin ang title
+make sure lang na naka require ang config.php
+mas maganda kung naka hiwala natong mga to
+gawa tayo ng variables.php
+
+tas irerequire natin yung variables.php
+
+px meaning horizontal
+ang px ay pl at pr magkasabay
+
+p for padding
+m for margin
+pag p lang, all yung pt pr pl pb
+b bottom
+
+<b> bold
+
+ganto pala mag kulay
+
+
+woah kahit walang nakalagay 
+biglang may session na at nasa dashboard na
+
+meron kasi tayo dito na walang laman
+
+so yung sinubmit natin ay valid kasi
+may ganung username at password talaga, puro blank
+
+itong message natin
+hindi appropriate
+didn't match e wala pa ngang tinatype
+
+so dapat macheck natin kung blank ba ang nilagay ng user
+hmmm, mali
+
+dapat pala maglagay nalang tayo ng required
+
+ilipat natin ito
+
+isave natin sa isang variable na pwede gamitin throught the page
+
+kayo bahala kahit ano name
+
+ayaw naman gumana nung Color
+
+ito ang maganda kay bootstrap
+responsive pwede na kagad sa mobile
+
+
+register naman
+
+
+need natin itong firstname last name
+so idagdag natin ito sa db
+
+
+itong account type
+dito natin aalamin kung ang user ba ay individual
+or corporate
+
+
+int kasi ireref lang natin ito
+naka refer lang ito sa ibang table base sa id
+
+
+dinelete ko muna lahat
+
+
+gaya ng kanina
+kailangan natin icopy yung function sa kabila
+
+
+tas irerename
+
+
+dito sa sql tab
+makakakuha tayo ng hints
+kasi may mga nakaready query na dito
+
+
+nalibang ako
+
+dapat mag katapat ang mga columns sa value na ipapasok
+
+
+names naman
+
+itest natin kung gumagana
+
+get nanaman
+
+
+hindi gumana
+
+
+ayaw parin
+
+
+uy need ko lang ata irefresh kanina
+
+
+ito pala account type
+0
+
+
+bale dito ilalagay natin ang types
+
+
+kita niyo ba itong id?
+yan ang irereference natin dito sa account type
+so mali itong zero
+either 1 or 2 dapat
+
+meaning nung 1 ay Individual
+yung 2 ay Corporate
+
+1 Individual
+2 Corporate
+
+i show natin itong pagpipilian sa register
+
+
+di banda mag query tayo ng account_types
+
+
+itong result ay di pa natin dyan makikita yung need nating 
+array
+so kailangan pa ng isa pang workout
+
+
+fetch array pag isa lang ang laman or makukuha
+pero kung alam nating maraming
+like 2 or more
+kailangan all
+
+itong mysqli assoc
+di ko alam i explain, ask niyo nalang sa prof niyo
+pero kung gusto niyo i comment niyo nalang sa video na ito
+
+
+
+try natin dito mag echo ng loop
+
+
+so kuha tayo ng select na pang bootstrap
+
+
+parang wala XD
+
+
+gawa nalang ako ng sarili ko
+
+ano ang value? edi id
+
+
+kita naman natin na ito talaga ang mga 
+values na need natin
+1 or 2
+
+
+
+hmmm zero parin?
+
+
+ah nasa labas kasi ito ng form
+kaya hindi nai sasama
+
+
+ok na... ulit
+
+
+yung design nalang talaga
+
+am panget
+radio ko nalang
+
+
+mas maayos tingnan
+
+
+ngayon icheck natin kung tama ba ang 
+mga password na ilalagay ng user
+dapat kasi mag ka pareho
+
+
+nilagyan ko lang ng required
+
+
+so ito yung 2 password
+
+
+bago natin gawin itong query
+
+
+I mean bago pa mabasa ng computer itong query
+dapat naicheck niya muna kung pareho ba yung
+password at confirm password
+
+
+custom error message nalang natin
+I mean yeah wala naman akong ibang alam na paraan
+
+kailangan i define muna natin ang $error_message
+kasi nasa loob ito ng if statement
+
+
+kung bago palang ang isang visitor sa page,
+hindi pa nadedefine ang $error message
+pero ieecho natin ito agad sa form
+
+
+kaya dapat kahit blanko dapat nakadefine na
+
+
+
+copy paste
+
+
+try natin mag kaiba ang password
+
+
+dapat nasa loob ito ng if ok yung passwords
+
+
+wala pa pala tayong photo
+
+
+
+ok na
+
+
+may problem dito
+
+
+pag ka pala gusto niyo irun ito sa pc niyo
+kung may xampp na kayo at htdocs
+ibibigay ko itong database
+tapos kayo na ang gumawa ng 
+onlinebookingsystem_db
+
+
+so ang gagawin ko muna ay i eexport ko muna
+
+
+kinlick ko yung database (hindi table)
+export tab
+
+
+ito yung database na ginawa natin
+
+
+kakaexport ko lang nito
+
+
+ito yung file na .sql
+
+
+isasama ko dito sa repository
+
+
+sa totoong buhay, wag niyong gagawin ito,
+na isasama ang .sql file sa project
+
+
+gagawin lang natin ito kasi need ko maipasa agad sa inyo
+
+
+any way
+irurun niyo ito sa phpmyadmin niyo
+
+
+ito kunwari yung phpmyadmin niyo
+pero walang onlinebookingsystem_db
+ako meron so aalisin ko muna
+
+
+so wala na
+mag new tayo
+
+
+pag naka gawa na kayo
+wag muna kayo gagawa ng table
+i-i-import niyo lang yung .sql
+how? sa import tab, sundan niyo mouse ko
+
+
+ganyan lang gagawin niyo
+tapos go sa pinaka baba
+
+
+make sure pag gagawin niyo itong import, 
+naka focus sa onlinebookingsystem_db
+para makasure kayo, iclick niyo yung database
+na yun onlinebookingsystem_db saka kayo
+pumunta ng import
+
+i go go ko na
+
+
+yan ok na
+
+may mali ulit sa picture na ito
+
+
+alisin na natin ito
+
+mauubos oras natin
+
+
+so alisin na natin itong picture
+
+
+madali naman intindihin itong css diba?
+
+
+anyway mas maganda kung mag focus lang tayo sa php muna
+pwede niyo naman sabihin na nag copy paste lang kayo
+sa mga pwede mapag copyahan ng codes 
+kung html css lang ang paguusapan
+pero ang php , dapat atleast alam niyo yun
+
+
+ilagay na natin yung dashboard
+
+
+napaka haba nitong file XD
+
+
+ihihide naman natin yung mga di natin kailangan eh
+pero magiwan nalang tayo ng basis,
+index2.html
+
+
+XD may modal pa pala, may need mag pop up 
+bago ko maka pag log out 
+
+
+rename natin ito
+
+
+so explain ko lang ito saglit
+
+
+itong modal
+
+
+ang meaning niyan ay popup ok?
+pag nanonood kayo ng streaming na bawal
+sa mga movie streaming sites, diba may mga nagpopopup?
+modal yun
+
+
+pag nag save as ka, may popup ulit
+
+
+ayan may nag pop up XD
+
+
+basta ang modal, yung lumilitaw
+
+
+sino ang palilitawin na modal?
+yung may ka referenced na id
+so lahat ng modal ay naka hide muna
+
+
+ito ay naka hide muna
+pag nagvisit sa page
+
+
+ito yung id niya
+
+
+ito naman yung nag rerefer sa kaniya
+
+kaya pag kinlick natin ito, bubukas yun, kasi
+ito ang kapareho na id dito sa target nato
+wag kalimutan ang # hashtag
+
+
+so ang mga ads na lumabas sa mga pinagdodownloadan
+ng mga bawal na downloadan ng mga kanta XD
+ang gulo ko
+
+
+basta yung mga sites na nagdodownload ng mp3
+tas kahit ano iclick mo sa part ng website
+nila, nag popopup yung ads nila
+kasi yung lahat siguro ng elements nila,
+may data-target tas hashtag sa ads nila
+
+
+
+ngayon try naman natin gumawa ng sarili nating page
+dahil mag lalagay na tayo ng service
+
+
+wala ata ditong inputs
+
+
+any way need na natin gumawa
+so mag invent nalang tayo
+
+
+XD
+
+di pala tayo nag bigay ng session dito?
+
+
+para lang tayong mag rerefresh nito
+
+
+ok na ba yan?
+
+
+ok, I hope get niyo yung ginagawa ko,
+puro php parin naman yan,
+ngayon gawa na ko ng form
+
+dapat mafill upan agad ang owner ng id ng user
+si aira user so need natin ng id niya
+
+
+ang pinaka madaling paraan diyan ay session
+
+yung ticket natin nung una palang lagyan natin ng id
+
+
+di ko pa kasi ulit nadaanan yung login.
+
+
+nakuha na natin yung id, ma u use natin ito sa mga queries
+try natin
+
+ay wait
+di ata ako naka login, pero naaaccess ko ito
+nakalogin parin pala,
+many times ko na shinutdown itong pc
+pero nandito parin yung session buhay na buhay
+
+
+so naaccess ko parin itong services
+which is mali
+itong errors, merong warning,
+undefined array key kasi hindi pa natin yun 
+naseset
+
+itong ticket id
+hindi defined, syempre
+dinedefine ito sa login or register
+mali pala ito, dapat makuha natin yung id pagnagregister
+kaso kakasend palang natin ng data sa register
+gets?
+
+nag insert tayo ng data, hindi tayo kumuha ng data
+kaya yung pag insert natin,
+pag dating sa database, dun palang siya gagawa ng id
+hindi naman tayo ang gagawa ng id eh
+
+AI yun, auto increment,
+so pano makukuha yung id ng bagong pasok nating data?
+
+mysqli_insert_id ... 1 parameter, yung connection
+mysqli_insert_id($con) 
+
+
+ito yung ttry natin kunin ang id
+
+wag muna natin i header
+
+
+success nakukuha natin ang id
+
+ilalagay natin sa session
+
+ok
+try na natin mag query ng new service
+
+
+may error
+
+try ulit natin, inalis ko yung comma
+
+kaya pala users, anyway new natong problem,
+yung kanina, nabasa yung comma. so yun ang sagot 
+sa problem kanina, sobra ng comma after created
+ngayon nag ququery tayo sa maling table,
+insert into users, dapat ay services
+
+nako
+
+so mali ako, AI ang gusto kong iclick,
+namali lang
+
+ok
+nakapag submit na tayo 
+gumagana na itong codes natin ng php ireview niyo ulit
+
+pwede niyo i pause, i eend ko na tong video
+
+dito ang gawin natin ilagay natin yung checking ng session
+
+diba naaaccess itong page kahit di nakalogin
+so dito sa services.php, dapat maglagay
+tayo ng checker ng ticket
+
+try natin iaccess nang nakalogout
+di na siya na aaccess
+
+ilipat na natin ito sa magandang styles
+
+dito siguro natin madidiscuss ang maraming require
+like require "config.php"
+
+hanapin natin yung side panel or navigations mamaya
+
+for now icopy muna natin ng buo
+
+dun sa kinopy natin, may php codes, inalis ko
+
+bawal daw i start ang session twice
+
+ngayon, alisin natin itong side panel
+hanapin na natin
+
+ito siguro sidebar daw e
+
+binura ko muna
+yan wala na
+
+try naman natin ilagay sa ibang file at i require
+
+ito yung sidebar kinut ko
+
+ngayon ang gagawin natin irerequire natin dun sa services.php
+bakit? bat natin to ginagawa,
+para marequire din natin ang very very the same 
+sidebar sa dashboard at sa ibang pages
+
+so lahat ng edit natin sa side-bar.php
+magrereflect syempre sa lahat ng mga 
+files na maggrerequire sa kaniya gets?
+pag di niyo gets, ganito,
+
+hindi pwede icopy paste natin sa lahat ng pages
+yung side bar
+dahil isang changes lang ang gawin natin, kailangan natin
+gawin yun sa lahat ng pages, sobrang exhausted ka nun
+kung tama man ang spelling ko ng exhausted
+
+pero kaya natin gagawin itong require ng side-bar
+para mas madali ang buhay
+
+try naman natin alisin yung sa dashboard at irequire ito
+
+dito sa side bar i background red lang muna natin
+for sample
+
+so dapat mag reflect din yan sa services
+
+kulang ako ng r
+
+pati itong nasa taas na bar, need nating i requre para 
+magamit ng ibang page
+
+again, hindi natin icocopy paste ang mga ganito
+i hope nagegets niyo ha
+comment niyo lang pag di niyo gets,
+gagawa ako ng more exercises para dito
+
+kita niyo tong mga arrow sa gilid,
+kiniclick ko para mafold yung mga codes
+at mas madaling tingnan
+
+
+try nating burahin itong nav
+
+wala na yung nav sa taas
+
+gawa tayo ng file
+
+pati itong mga links
+mga css ito ayaw natin ito i duplicates across the website
+
+XD spelling checking
+
+uulit ulitin ko lang
+
+
+ayusin natin yung links sa side bar
+
+
+nyare di ata naka require mga gamit natin
+
+paltan natin yung icon
+
+
+lagi niyong tandaan 
+
+ang font awesome ay fa meaning font awesome
+
+fa? font awesome
+pwede fas fab or kung ano man ang bago
+
+kita niyo yan
+fas
+
+tas yung kasunod
+
+fa
+
+tas yung susunod ulit fa
+
+mga icons yan
+yung fas to define lang na itong element ay icon
+
+pero yung may mga dashes fa- fas- fab-
+mga icons
+
+tachometer?
+
+mali ata ako
+ito palang fa-fw hindi pala icon
+fixed width pala
+
+dapat malaman natin kung nasaan tayong page
+para masend natin sa class na ito kung alin ang active
+
+gets?
+
+ngayon gawa na tayo
+I mean, i lagay na natin itong forms sa services
+
+ito mas gusto ko projects
+ito gagamitin natin na card
+
+pero mukha parin panget
+
+i hide pala natin to
+
+bawal to baka palitan ng isang user
+
+
+so idedelete natin
+
+gets?
+
+dineretso ko na
+
+kulang pa tayo ng categories next time gawin natin
+
+hala owner 0
+
+may dobles semi colon
+
+yan ok na
+
+
+tuloy tayo, gagawa na tayo ng categories
+
+
+
+ok meron na tayong table
+
+
+mag add na muna tayo via here!
+
+
+maya na natin palitan yung ibang like picture
+
+dito sa register, ilalagay natin ang categories
+para maka pili ang user
+
+actually maganda pala tong mga inputs nila
+mabilog
+
+dun sa tin ay ma square
+
+ayaw parin
+
+panget
+
+ok na ko sa squarish
+
+san tayo
+
+gawin nating select
+
+nagloloko keyboard ko sorry
+
+tingnan niyo to
+
+di ko alam pano mag placeholder
+
+so ang gagawin natin gagawa tayo ng isang
+selected na option, pero disabled
+walang value
+
+so yun ang makikita agad as placeholder natin
+
+
+wala palang nakikita dito
+
+lagay nalang natin yung css nun
+custom css natin ito
+
+actually ayokong ulit ulitin to
+
+make sure lang na naka require tong mga to
+config at variables
+
+saka session
+
+maglalagay tayo ng primary category
+
+yung id lang naman ang irerefer natin e
+
+nabura ko XD
+
+
+so ibalik natin
+
+so yung id nito dapat masave rin
+
+hindi successful
+
+hanapin ko lang yun logs
+
+ito pala
+
+
+mali column name ko sorry
+
+ok na
+
+walang category itong services
+
+mag lalagay tayo ng category
+
+hindi to ginagamit
+na copy paste lang to
+
+ok na
+
+
+ngayon idedefine natin ang mga user kung ano sila
+sila ba ay consumer or provider
+
+since ang consumer ay walang primary category, kailangan
+naka default ang ating primary category sa 1
+
+para kahit hindi masama sa registration ng 
+consumer, hindi mag eerror sa sql
+
+ok na
+si aira dito sa db natin ay 1 kasi provider siya
+
+
+kailangan natin ng landing page
+
+sa url na ito,
+dapat may landing page tayo na index.php
+para duon pala, makaka pili na ang mga
+mag reregister kung ano sila
+try natin copyahin yung gawa natin nung nakaraan
+
+nilipat ko
+kinopy pala
+
+
+so tuloy natin
+
+javascript files
+nawala ba yung background natin?
+may nadobleng brace
+
+okay na
+
+gawa naman tayo ng login ng consumer
+
+hindi natin to uulitin,
+medyo ititwist lang natin ng konti
+
+aalamin natin kung ano ang kinlick ng visitor
+bago makarating sa page na ito
+
+gamit ang GET
+
+anyway
+pag walang get, ibalik natin sa index pala
+
+
+tuloy natin
+sorry naputol so dito sa login
+lalagyan natin ng kung ano ba ang pinanggalingang button
+dito sa index.php
+
+nandito yung dalawang button or link pala
+
+lalagyan lang natin ng pagkakakilanlan gamit ang 
+GET
+
+
+wag natin kalimutan yung question mark
+
+
+so dito madidistinguish na natin sila/ ang mga visitors
+
+
+mukhang hindi dito
+sa register
+pwede namang mag katulad ang login ng 2 users natin
+
+&nbsp; meaning space
+
+
+idedefine ko lang muna as blank para hindi magerror
+kung sakaling hindi naka set ang 
+GET
+
+
+dapat walang primary category ang consumer
+
+pati account type
+
+
+sa functions naman
+
+
+try natin mag register
+
+naka limutan natin definition
+ako pala
+
+ ok na
+
+
+ ang sunod natin gawin
+
+
+ itong pangalan palitan natin
+
+
+ itry natin mag $con
+ ng walang config.php
+
+
+ kasi hindi naman irurun ang file na to mag isa e
+ malamang, kakailanganin ito irun ng isang file na may config.php
+
+
+
+ naisip ko lang,
+ gawa tayo ng starter file
+
+
+ so lahat dapat ng files meron nito
+
+
+ di pala natin nabago yung name
+
+ for some security reasons
+ kailangan ko paring i ask dito kung
+ naka set ang session
+
+
+ malay natin kung iaccess ng solo ang file na ito
+
+
+ picture naman
+
+ pero mahaba ang picture
+ sa next video nalang
+
+
+ so itong gagawin natin,
+ makikita niyo kung pano ko gawin ang bagay
+ na di ko memorize, but I'm sure
+ nagawa ko na dati,
+ I use google lagi para sa mga ganitong sitwasyon
+ di ko kasi minememorize ang mga codes
+ like this kasi di ko rin naman magagamit
+ any way
+ wala pala akong minemorize na codes
+ lahat ng alam ko namemorize ko siguro dahil 
+ madalas ko nagamit.
+
+ I hope mapractice niyo ang computer language na 
+ gusto niyo, kahit ano pa yan, java, php, python, ruby
+ etc etc
+
+ kung ano man ang gusto niyong codes, sana ipractice
+ niyo para mabilis niyong maitype
+ at mabilis kayong makagawa ng gusto niyo
+ gamit ang favorite niyong computer language
+
+ ano favorite ko? joke, php talaga XD
+
+
+ pero palagay ko kasi mas advance na ko sa javascript
+ kagagamit
+
+ maraming magsasabi sa inyo na wag kayo mag refer
+ dito sa w3schools
+
+ tama yun XD
+
+
+ sundan niyo nalang mouse ko ha
+
+ so kitang kita niyo na icocopy paste ko lang ito
+
+
+ masyadong mahaba itong function na to kaya siguro
+ ibang file natin
+
+
+ ngayon medyo ginagrasp ko pa
+ logics
+
+ pwede niyo i skip ang video nato sa next video
+  i ttry ko iexplain
+
+ pero ngayon kung gusto niyo panoorin kung pano ko ireview to
+ ok lang
+
+ so yan natapos ko na ang reviewing
+ ngayon check natin codes na to
+
+ itong upload image file nakahiwalay
+
+ ichecheck nito kung naka reg, or else 
+ go to index.php
+
+ wag niyo muna pansinin ang mga codes nato sundan niyo lang 
+ ang mouse ko
+
+ itong target_dir
+ gawa gawa lang na variable yan, di yan sa php
+
+ pwede natin yan palitan
+ usually
+ mga $adadfgdfg
+ $etcddfgdfg
+
+ mga variables na may dollar sign tapos
+ right after ng dollar sign ay letters na
+ usually mga variables ito na hindi
+ ginawa ng php
+
+ ang mga gawa ng php is something like $_POST
+ $_GET
+ may underscore diba?
+
+ so dito users-pictures
+ dyan sa folder na yan ilalagay lahat ng pictures ng
+ users
+
+ punta tayo sa project folder
+
+ ito yung users-pictures
+
+ sa loob nito kita niyo na yung folder
+ at itong isang sample
+
+ mali yung walang folder
+ dapat may folder na may random na number
+
+ tapos yung file name, dapat ay may random din na number
+
+ okie
+
+ ang gawin natin icheck natin ulit ang mga codes
+
+ so yung users-pictures/
+ existing na yang folder na yan
+
+ yung new folders kung saan ilalagay ang 
+ mga new pictures, dapat ay mamake muna natin
+ kasi wala pang existing na ganung folder
+
+
+ sundan niyo mouse ko
+ $target_dir = "users-pictures/" . $random_numbers1 . "/";
+ itong $random_numbers1 ay random numbers
+
+ so ano ang kakalabasan nito?
+ "users-pictures/" . $random_numbers1 . "/"
+ "users-pictures/345345345344/" parang ganyan
+ existing yung isa pero yung bagong generated numbers
+ hindi
+
+ para mamake yun, mkdir
+
+ kita niyo?
+ 0700 permission yan
+
+ matututunan niyo rin yan sa IT or baka alam niyo na
+
+ itong mt_rand nag gegenerate ng numbers from
+ 100000000000 to 999999999999
+ randomly
+
+ yan mas maayos
+
+ para saan pala yung pangalawa?
+ random_numbers2?
+
+
+ so through out dito sa mga kinopy natin na codes gagamitin
+ itong pag kakasunod sunod ng string na to
+
+ ito namang ext file extension ito
+ kinuha ko ang file extension matapos kong 
+ gumawa ng new name para sa file
+
+ nasan ang totoong pangalan ng file?
+
+ yan ang pangalan ng file with extension like .jpg
+ .png
+ .bmp
+ .gif
+
+ para makuha yung extension
+ sundan niyo mouse ko
+
+ so itong target_file
+
+ gagamitin na madalas
+
+
+ uploadOk, sa dulo kasi ng codes nato, aalamin kung may error
+ since nag sisimula palang ang codes
+ kaya = 1
+
+ once na may error 
+ = 0 na
+
+ ito namang imageFileType
+ na ulit ko lang pala yung codes
+
+ ichecheck nito ang type
+ so dito sa mga naka highlight kita kagad kung
+ ano ang ginagawa nitong codes,
+ self explanatory naman
+
+ size daw
+ getimagesize kay php
+ dito pala inaalam nito kung image?
+
+
+ dito naman 500k lang dapat ang file size 
+ maximum
+
+
+ sa dulo, pag walang error
+ sa lahat ng mga iyon na nag check,
+ pwede na i upload
+
+ move_uploaded_file ang function kay php ulit
+
+ di na tayo mag eecho dito
+
+ sige na nga XD
+
+
+ di naman natin inalis yung iba e
+
+ ako ang nag lagay nung mga returns
+
+ kaya inalis ko na
+
+ try natin
+
+
+ oops
+
+ check ko lang mga mali
+
+ path cannot be empty daw
+
+
+
+
+ isa pa
+
+
+ so need lang pala nung return ?
+
+
+ yan ok na
+
+ isesave natin sa database ang name at address nitong picture
+
+
+ mich.jpg parin lahat
+
+
+ since nauna tong require
+
+ ganyan natin siya isesave
+
+
+ try natin
+
+
+ ok na pero sa db kaya?
+
+ nice na upload na
+
+ siguro alisin na natin yung users-pictures
+
+ pampahaba yun di naman unique
+
+
+ test ulit
+
+ 775......
+
+ kulang
+
+
+ try ulit
+
+
+ yan ok na, db na
+
+
+ 643.....?
+
+ tama
+
+ isa pang test
+
+
+ pero this time pwede nanaman natin alisin yung 
+ input for picture e
+
+
+ may error ata
+
+ luh wala yung 945?
+
+
+ ahhh alam ko na,
+ nag error yung query
+ pero naupload parin yung picture
+
+ once mag error ang query, burahin natin itong file nato
+
+
+ wala pala ko net wait
+
+
+
+ so may nakita ako sa internet unlink
+
+ try natin
+
+
+ so yan gumagana naman
+
+
+ maya 
+
+ naka bukas pa to sa ibang programs siguro
+
+
+ any way dito, sakaling mag error i unlink nalang natin
+
+
+ pati sana yung folder
+
+ nilipat ko para di natin kailangang ulitin yung code
+
+ uulitin kasi natin dito
+ pag mali ng confirmation ng password
+
+ i uunlink ulit natin
+
+
+ so dito nalang sa loob pag nag true sa 
+ pass confirmation
+
+ try natin ierror pero walang codes
+ ng ginawa natin
+
+
+ nag error
+ pero check natin ang photos
+
+
+ wala yung gggggg
+ pero nag upload
+
+ paganahin naman natin ang codes unlink
+
+
+ nag error
+
+ binura naman niya yung picture pero yung folder hindi
+
+ wait ha
+ hanapin ko lang yung delete folder
+
+ rmdir
+
+
+ remove directory siguro meaning nito
+
+
+ yaan muna natin to
+
+ ulit test
+
+
+ so yan wala
+
+ try natin alisin yung codes
+
+
+ nag save
+
+
+ ibalik natin yung codes na pang delete
+
+
+ ok na hahaha
+
+ yung design nalang
+
+ last test pala natin
+
+
+ 261.....
+
+ ok na XD
+
+ wala nga pala akong net XD
+
+ hirap wait
+
+
+ akala ko naman makikita ko dito sa choose file
+
+
+ try natin tong script
+
+
+ YOWN!!!!
+
+ try natin ulit with our brand new design
+
+
+ hala wala
+
+ malaki siguro yung file
+
+ dito palang i delete na natin yung folder
+
+
+ so yan binura na
+
+ pero wala tayong note na dapat mababang files lang
+ ang pwede
+
+ try natin 
+
+ pag kinclick itong individual word
+ dapat mag select sa radio niya
+ cause ngayon hindi pa ganun
+
+
+ meron tayong jquery kanina
+
+ javascript ito
+
+ jquery nga lang ang library na ginamit
+
+
+ nilagyan natin ng unique na id acc-1
+ acc-2
+
+ so dito nadin sa loop na ito
+ ilagay natin ang jquery natin
+
+
+ need pala natin sa baba talaga
+
+ or sa head natin i define ang jquery
+
+ wait need ko mag google
+
+ checked
+
+
+ mag lalagay tayo ng for logged in na javascripts
+ medyo maselan e
+
+
+ ayaw na bumalik
+
+
+ parehong naka check so dapat maalis natin muna yung mga nakacheck
+
+ class pala hahahah
+
+ wala pala tong head
+
+ nako may nabura ata ako
+
+ di ko alam nangyari
+ pero try natin ibalik yung jquery
+ na literal
+
+
+ parang di na to nababasa
+
+
+ sabihin na nating nag stop na dito ang codes
+
+
+ so kailangan mauna to kesa sa mga 
+ nasa required js
+
+ kulang ako ng s ?_?
+
+
+
+
+ ngayon ilagay na natin yung picture ng user dito
+ sa sulok
+
+
+ wala?
+
+
+ nabura na ata natin
+
+
+ ok next ay mag consumer naman tayo
+ pero gawa muna tayo ng kahit isang service
+
+
+ nako
+
+
+ kita niyo ba itong single quote?
+
+
+ pag may mga ganyan, need ng protection ang 
+ mysql queries natin
+
+ kasi ang quotes nagagamit panghack
+
+ try natin ihack ang project natin using quotes
+ since wala pa itong pang iwas injections
+
+
+ kunwari wala tayong alam sa codes ng system nato
+ pero may alam tayo ng konti sa basic hacking ng php
+
+ tingnan niyo mouse at types ko
+
+ wala atang nangyari
+
+
+ medyo na sira ko na
+
+
+ wala ayaw gumana
+
+ https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
+
+ may nauna akong video
+ kaso mahaba masyado
+
+ dito sa video na ito
+ mag lalagay tayo ng pang protection sa sql injections
+
+ https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
+
+ ito yung link
+
+ makikita niyo dito ang mga basic na ginagamit 
+ pang hack ng website
+
+ http://www.securityidiots.com/Web-Pentest/SQL-Injection/bypass-login-using-sql-injection.html
+
+ so dito naman ganun din, mga explanations
+ at kung paano ginagawa
+
+
+ sa madaling sabi, pag walang protection ang 
+ mysql queries, pwedeng mahack ang database mo
+
+
+  dito meron akong quote... ang quote na yan ay medyo
+  delikado na
+
+  at di ito mag susubmit
+
+  dahil masisira agad ang query
+
+
+  so para maiwasan to hahanap tayo ng pang iwas
+  injection
+
+  ok madami itong mga ito,
+  pero kunin na natin yung ginamit natin
+
+  tinawag ko itong clean
+  para mas madali kong magamit ng maraming beses
+
+
+  dito natin gagamitin ang clean()
+  tayo gumawa nito
+
+  wag niyo tong tawaging clean, kundi sanitize actually 
+  baguhin ko na
+
+  sa mga post lang natin ito gagawin
+  at sa get
+
+  post at get lang
+  wag sa sessions at iba pa
+
+  pag checking ng post 
+  like isset()
+  ok lang walang sanitize()
+
+  ulitin natin
+
+
+  yung sanitize pala need ng connetion
+
+  ok na
+
+
+  ngayon consumer naman tayo
+
+  gawa tayo ng consumer
+
+
+  include_once
+
+
+  hindi
+  nadoble lang talaga ang codes natin
+  di natin nabura yung require require natin sa login.php
+
+
+  so dapat mahide natin itong service page
+  sa consumer
+
+  so babalik lang sa dashboard.php
+
+
+  at wag narin nating ishow
+
+
+  sa config siguro natin ilagay ito
+
+
+  XD gumawa na ng file
+
+
+  actually pwede naman sa variables nalang
+  dadami masyado files natin
+
+  wag na natin ito itanong sa database
+
+  dapat dito na natin ito ilagay sa variables
+
+  ililista nalang natin ang mga pages
+  na pwede sa mga definitions
+
+
+  so dito sa services ilalagay natin yung function
+
+  dapat naka gawa na pala tayo ng maayos na session
+  para di tayo pabigat sa system
+
+
+  so dito muna sa register,
+
+  hindi pala, irerecord na natin ito as new session
+  variable,... like tickt
+
+
+  or pwede sa loob nalang ng ticket
+
+
+  dahil sa now()
+  mas gusto ko nalang kunin ulit yung data
+
+
+  medyo mahaba na tong video
+
+
+  ngayon ang gagawin natin, test natin
+
+
+  wow nabasa agad ang sessions
+
+
+  nasa labas kasi ng function
+
+
+  so yan ok na 
+  pero need natin ihide yung nasa side bar
+
+
+  itong $user
+  gawin na nating global
+
+  or no?
+
+
+  undefined daw user
+
+
+  eto pwede na natin gawing global
+
+
+  gagamitin natin ito sa lahat ng pages na need 
+  na nakalogin ang user bago ito maaccess
+  or else header location sa login
+
+
+  kasama narin dito ang $user
+
+
+  woah
+
+  ito ang problem
+
+
+  so ang ginawa natin ay
+
+  chineck parin natin kung permitted sa isang 
+  page
+  pero kung mag false, hindi ireredirect agad
+  kundi mag rereturn lang ng result
+  ,
+
+  on the other hand, pag true yung
+  $redirect, ito yung checking pero at the end, mag
+  reredirect, effective sa mga pages, instead of 
+  ihihide lang ang isang element etc
+
+
+  try natin mag pa default
+
+
+  naaaccess ko
+
+  mas ok pala yung may word kesa true lang
+
+
+  ok na
+
+
+so bilang consumer, magsesearch tayo ng 
+mga services
+
+
+dito sa navbar meron ng search bar
+
+
+try natin gamitin
+
+
+so dito mag foform tayo
+
+
+
+di na natin kailangan yung codes na yun
+
+
+naimport na kasi natin yun
+
+ito
+
+
+must have ticket
+
+
+kahit saang page na need ng login/auth, merong ganyan
+
+
+parang di to nasusubmit
+
+
+so yan nasusubmit na
+
+
+need lang nung type=submit
+
+
+kahit walang name yung submit button, pwede masubmit
+
+
+ngayon kunin natin ito sa sariling file narin
+
+
+since walang name yung submit button natin,
+yung mismong search input na ang gamitin natin
+
+
+ito need natin
+
+
+itong search result natin iloloop natin sa medyo malayo
+
+
+gagawa tayo ng bagong bagong file
+
+
+pero itry na muna natin dito ngayon ang query natin
+
+
+medyo hirap pala basahin ng ganto ang query
+
+
+balik tayo isosolve ko muna
+
+
+so tuloy natin, nakuha ko yung sagot sa mysql
+
+
+phpmyadmin
+
+so naputol, ito yung need natin para sa search
+WHERE title LIKE
+
+
+sundan niyo ko ha, need ko bilisan
+
+hanap tayo pang limit ng text sa php
+
+
+remove natin yung mga di kailangan in the last minute
+
+
+once magclick ang user ano mangyayari?
+
+
+ok pupunta dapat sa service page.
+
+
+
+check niyo to shorcut to ng if else
+
+if countSearch > 1 { then return s} else { return wala}
+
+
+$countSearch>1?'s':''
+
+
+blank array yung ginawa ko
+
+
+click na natin
+
+
+so wala pa to
+
+
+nawala pala yung booking system
+
+
+aalisin lang yung /
+
+
+so dito natin kunin
+
+
+wag niyo na muna ito igets tatagal ako
+di pa naman ito need since sql to
+
+pero ang gagawin ko ay 
+ijojoin ko lang naman yung category para 
+hindi id ang ililitaw kundi name
+
+
+parang na topic ko na to
+sana
+
+
+ucfirst() // pam palaki ng first letter
+
+
+di ko ginamitan ng h6 h5 etc
+
+
+kasi h1 ang nireread ng mga search engine like google.
+
+
+so  important dito ang <h1>
+
+tayo na mag adjust
+
+
+tuloy tayo i didisplay ko na yung iba
+
+
+wala na pala yung user na yun id = 10
+
+nasa 50 51 na
+
+
+ay 50 pala to
+
+
+u pala to dapat
+
+
+so once na kinlick ito dapat magrecord tayo
+na naka book na itong service
+and dapat recorded kasama yung
+nag book
+gagawa tayo ng book table
+
+
+puro id lang naman kukunin natin
+
+
+try lang muna natin
+
+
+nyare
+
+
+gawa nalang tayo ng shorthand page
+
+
+mahirap pala
+
+nyare sa login?
+
+
+copy paste sa reg
+
+
+so ito yung mga need natin
+
+sabi na mahirap to
+
+
+dito nalang ulit
+ok na
+
+
+medyo mag bura na tayo dito
+
+
+
+para feel ko lang na need na ng design for real nito
+
+
+so need ko ng pag notes para sabihin na 
+ang service na ito ay naka ay hindi,
+naka inquire na pala, hmmmmm
+sige na nga book na
+wala na munang message message pa
+so far wala naman talaga dapat, ganun na sa mga 
+modern apps ngayon
+like grab food, ito kasi ginagamit ko
+pero syempre pag nag book
+ako, dapat magrespond yung service provider
+and dapat hindi na makapag book yung ibang tao
+
+kasi naka book na ko
+
+
+mag lagay nalang tayo ng counts
+availability ng isang service na 
+gagawin ng service provider
+so pag may ginawa ang service provider
+na service, need niya idefine kung
+ilan ang pwedeng makapag book right?
+
+
+then once booked na ang isang user, pwede na 
+mag message
+pag done na ang service,
+nasa service provider na kung 
+ibabalik ang count sa service na yun,
+gets?
+
+
+
+badge
+
+
+ilalabas natin ang message nato pag booked na
+pero kunin muna natin sa db
+
+
+kaya ako may backtick kasi nag pupula
+
+
+
+user pala
+
+
+tapos alisin natin yung book now button
+palitan natin ng message
+message nalang
+
+
+
+gagawa na tayo ng messages page
+
+
+nakalimutan ko ang dates
+
+
+dapat meron tong availability
+
+
+itong availability,
+time ito
+
+
+parang ganito
+
+
+13:00-14:00 meaning 1pm to 3pm
+yan
+
+
+burahin muna natin lahat
+
+
+
+so dito dapat malagay na natin yung 
+time availability
+
+
+ilagay narin natin ang days
+
+
+mag eexplode tayo
+13:00-14:00--0,1,2,3,4,5,6
+meaning 1pm to 3pm sunday to saturday gets?
+
+
+ito maganda
+
+ito pwede pag mag boobook
+
+
+so plugin pala
+
+
+inalis na pala ang date picker
+
+
+
+mahaba na masyado tong video
+
+
+
+since masisira itong design natin
+need natin ng solong time picker lang for jquery
+not for bootstrap
+
+
+
+ayos to
+kasi may time limit na
+nice
+
+
+any way hindi natin lilimitahan ang service provider
+
+
+
+medyo badtrip na ko XD
+
+
+nabuo na XD
+
+
+ok na XD hahahahaha
+
+
+
+days naman XD
+
+
+
+wow
+kala ko lahat na laos na
+
+this is nice
+
+
+feeling ko maguguluhan kayo masyado
+
+pero tyagain niyo nalang
+
+
+
+tuloy natin ang matyagang designing
+okie!
+
+
+ittry ko ipause ang site
+baka may mapakinabangan ako sa time
+
+
+kahit pala di ko na i pause
+
+
+mabagal mag load kasi galing sa inter net ang nkaramihang 
+codes
+
+mamaya i local natin
+
+
+so ang ginawa ko ay pinindot ko yung F8
+
+para ma pause
+
+
+scrollbar
+
+hindi ata talaga nababasa dito
+
+
+natapos din XD
+
+
+tuloy tayo irerecord natin ang mga time at days
+
+we have to make sure muna kung pano makukuha
+
+dun pala lalabas sa element na may selected days
+
+
+
+WOW
+
+ok na pala XD
+
+
+sesave na natin
+
+
+try natin
+
+
+yung time hindi nasama
+
+
+nako isosolve ko pa
+
+
+
+ttry ko ulit
+
+
+iexplode ko nalang
+
+
+
+nag sesave na yung oras??
+
+
+so gumagana pala talaga?
+
+
+tagal ko hinanap gumagana pala
+
+
+tingnan niyo itong links 
+hrefs
+
+
+may https: at // double forward slashes
+
+so online yan
+pag walang net, hindi gagana ang marami sa mga codes ng app
+nato
+
+
+so i local natin
+
+wag na pala XD
+
+
+mahirap i local yung sa google dami iiimport
+
+
+so long haul to kaya di ko na irerecord,
+pero ang gagawin ko ay aalisin ko yung
+palagay ko ay magkakapareho lang
+
+
+mga italic na 200 ang font weight
+palagay ko parepareho lang
+
+
+sana gumana
+
+
+
+di ko na pala itutuloy yung long haul, may
+ittry ako
+
+
+so inalis ko yung ibang kasama
+
+
+the heck
+
+
+yown gumana na
+
+
+i show na natin sa service yung may time na
+pero ayusin muna natin mga data
+
+
+
+dito dapat magshow
+
+
+
+mas madali nga naman kung dun na galing sa javascript,
+pero mas mamomonitor kasi natin kagad dito
+ang ids
