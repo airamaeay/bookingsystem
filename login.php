@@ -1,7 +1,7 @@
 <?php
     require "starter.php";
     if(isset($_SESSION['ticket'])){
-        header("location: dashboard.php");
+        header("location: services.php");
         exit;
     }
     $error_message="";
@@ -34,7 +34,9 @@
                 "definition" => $user['definition']
             );
 
-            header("location: dashboard.php");
+            mysqli_query($con,"UPDATE users SET online_status = 1 WHERE id=".$_SESSION['ticket']['id']);
+            
+            header("location: services.php");
             exit;
         }else{
             $error_message = "Username password didn't match.";

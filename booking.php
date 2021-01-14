@@ -1,10 +1,11 @@
 <?php
     require "starter.php";
-    $this_page="service";
-    $page_title="Service";
+    $this_page="booking";
+    $page_title="Booking";
     require "must-have-ticket.php";
 
-    if(isset($_GET['inquiring_id'])){
+    if(isset($_GET['inquiring_id'])&&isset($_GET['booking_id'])){
+        $get_booking_id = sanitize($con,$_GET['booking_id']);
         $get_inquiring_id = sanitize($con,$_GET['inquiring_id']);
     }
 
@@ -70,8 +71,6 @@
                 '1'
             )"
         );
-        header("location: booking.php?id=".$service_id."&inquiring_id=".$inquiring_id."&booking_id=".$book_id);
-        exit;
     }
 
     if(isset($_GET['id'])){
@@ -107,7 +106,7 @@
             ));
         }
     }else{
-        header("location: index.php");
+        header("location: services.php");
         exit;
     }
     if($user['definition']=='2'){
@@ -123,7 +122,7 @@
             FROM books b 
             LEFT JOIN booking_status bs
                 ON b.status = bs.id
-            WHERE b.`service`='$id' AND b.consumer='$user_id'");
+            WHERE b.`id`='$get_booking_id'");
         $is_booked = $result->num_rows;
         if($is_booked){
             $book = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -143,7 +142,7 @@
             FROM books b 
             LEFT JOIN booking_status bs
                 ON b.status = bs.id
-            WHERE b.`service`='$id' AND b.consumer='$user_id'");
+            WHERE b.`id`='$get_booking_id'");
             $is_booked = $result->num_rows;
             if($is_booked){
                 $book = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -152,7 +151,6 @@
     }
 
 
-    $is_booked = false;
     require "head.php";
 ?>
 <body id="page-top">
@@ -339,7 +337,10 @@
                                                     "message.php?".
                                                     "service_id=".$service['id'].
                                                     "&".
-                                                    "inquiring_id=".$get_inquiring_id;
+                                                    "inquiring_id=".$get_inquiring_id.
+                                                    "&".
+                                                    "booking_id=".$get_booking_id
+                                                    ;
                                             ?>
                                         ">
                                             Messages
@@ -374,7 +375,7 @@
                                                         ON b.consumer = u.id
                                                     LEFT JOIN users um
                                                         ON m.sender = um.id
-                                                WHERE s.id = '$service_id' AND u.id = '$get_inquiring_id'
+                                                WHERE b.id = '$get_booking_id'
                                             ");
                                             $messages = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                             $result = mysqli_query($con,
@@ -383,7 +384,7 @@
                                                         ON b.service = s.id
                                                     LEFT JOIN categories c
                                                         ON c.id = s.category
-                                                WHERE s.id = '$service_id'
+                                                WHERE b.id = '$get_booking_id'
                                             ");
                                             $service = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -396,6 +397,9 @@
                                             $last_message_id = 0;
                                             foreach($messages as $each){
                                                 $last_message_id = $each['id'];
+                                                if($each['sender']!=$user['id']){
+                                                    mysqli_query($con,"UPDATE messages SET seen = '1' WHERE id = '$last_message_id'");
+                                                }
                                                 if($each['status_update']){
                                                     ?>
                                                         <div class="row message-note mt-3">
@@ -475,6 +479,8 @@
                                 </div>
                                 <div>
                             <?php } ?>
+                        </div>
+                        </div>
                         </div>
                     </div>
                 </div>

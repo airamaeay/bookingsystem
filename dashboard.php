@@ -3,6 +3,29 @@
     $this_page="dashboard";
     require "must-have-ticket.php";
     require "head.php";
+
+    //current bookings
+    $result = mysqli_query(
+        $con,"SELECT 
+            s.*,
+            b.created book_created,
+            b.modified book_modified,
+            bs.status booking_status,
+            bs.color booking_color
+        FROM books b
+        LEFT JOIN services s
+            ON b.service=s.id
+        LEFT JOIN booking_status bs
+            ON b.status=bs.id
+        WHERE b.consumer=".$user['id']
+    );
+    $countBooking = $result->num_rows;
+    if ($countBooking) {
+        $booking_results = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        $booking_results_message = "You have a total of ".$countBooking." booking".($countBooking>1?'s':'')."!";
+    }else{
+        $booking_results_message = "You haven't book any service yet!";
+    }
 ?>
 <body id="page-top">
 
@@ -349,6 +372,43 @@
                             </div>
 
                         </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Booking History</h6>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                        if(!$countBooking){
+                                            echo $booking_results_message;
+                                        }else{
+                                            echo $booking_results_message;
+                                            $increment = 0;
+                                            echo "<div class='my-3'></div>";
+                                            foreach($booking_results as $each){
+                                                $increment++;
+                                    ?>
+                                                <div class="mb-5 mt-1">
+                                                    <a href="service.php?id=<?php echo $each['id']; ?>">
+                                                        <h4><?php echo $increment.". ".$each['title']; ?></h4>
+                                                        <span class="status badge badge-<?php echo $each['booking_color']; ?> mb-2">
+                                                            <?php echo $each['booking_status']; ?>
+                                                        </span>
+                                                    </a>
+                                                    <p>
+                                                        <?php
+                                                            echo 
+                                                                substr($each['description'], 0, 200) . "...";
+                                                        ?>
+                                                    </p>
+                                                </div>
+                                    <?php
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -358,13 +418,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            <?php require "footer.php"; ?>
             <!-- End of Footer -->
 
         </div>
@@ -398,6 +452,7 @@
         </div>
     </div>
     <?php require "javascripts.php";?>
+    <?php require "javascript-charts.php";?>
 </body>
 
 </html>

@@ -90,6 +90,8 @@
                     "definition" => $user['definition']
                 );
 
+                mysqli_query($con,"UPDATE users SET online_status = 1 WHERE id=".$_SESSION['ticket']['id']);
+                
                 header("location: dashboard.php");
                 exit;
             }else{
