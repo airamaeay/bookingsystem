@@ -3,7 +3,7 @@
         header("location: index.php");
         exit;
     }
-    function genRan(){return mt_rand(100000000000,999999999999);}
+    function genRan(){return mt_rand((int)100000000000,(int)999999999999);}
     $random_numbers1 = genRan();
     $random_numbers2 = genRan();
     $target_dir = "users-pictures/" . $random_numbers1 . "/";
