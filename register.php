@@ -12,7 +12,7 @@
         $user_definition = $_GET['user_definition'];
     }
     if(isset($_SESSION['ticket'])){
-        header("location: dashboard.php");
+        header("location: services.php");
         exit;
     }
     $error_message="";
