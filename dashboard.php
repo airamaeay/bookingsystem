@@ -2,6 +2,8 @@
     require "starter.php";
     $this_page="dashboard";
     require "must-have-ticket.php";
+    header("location: services.php");
+    exit;
     require "head.php";
 
     //current bookings
