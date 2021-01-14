@@ -115,7 +115,11 @@
                         'background-position:'.$service['picture_position']
                         ; ?>
                 "></div>
-                <h1 style="font-size:24px;"><?php echo $service['title']; ?></h1>
+                <h1 style="font-size:24px;">
+                    <a href="service.php?id=<?php echo $service['id']; ?>">
+                    <?php echo $service['title']; ?>
+                    </a>
+                </h1>
                 <div
                     style="
                         font-size:14px;
