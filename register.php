@@ -162,7 +162,7 @@
                                         <div class="custom-file">
                                             <input type="file" name="fileToUpload" class="custom-file-input" id="customFile">
                                             <label class="file-label custom-file-label" for="customFile">
-                                                Choose File
+                                                Upload Profile Picture
                                             </label>
                                         </div>
                                         <span class="hint">Maximum file size is 500kb</span>
