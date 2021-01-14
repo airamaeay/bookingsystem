@@ -96,10 +96,12 @@
         $availabilities = [];
         $for_avail = explode("---",$service['availability']);
         for($n = 0;$n<count($for_avail);$n++){
-            $time = (explode("--",$for_avail[$n]))[0];
-            $days = (explode("--",$for_avail[$n]))[1];
-            $time_from = (explode("-",$time))[0];
-            $time_to = (explode("-",$time))[1];
+            $new_array = explode("--",$for_avail[$n]);
+            $time = $new_array[0];
+            $days = $new_array[1];
+            $new_array2 = explode("-",$time);
+            $time_from = $new_array2[0];
+            $time_to = $new_array2[1];
             array_push($availabilities,array(
                 "days" => $days,
                 "time_from" => $time_from,
