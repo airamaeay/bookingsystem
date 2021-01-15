@@ -16,6 +16,15 @@
         exit;
     }
     $error_message="";
+    $user = "";
+    $pass = "";
+    $confirm_pass = "";
+    $first_name = "";
+    $last_name = "";
+    $email = "";
+    $phone_number = "";
+    $account_type = "";
+    $category = "";
     if(isset($_POST['reg'])){
         $user = $_POST['user'];
         $pass = $_POST['pass'];
@@ -146,21 +155,21 @@
                                     <?php } ?>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input required name="first_name" type="text" class="form-control form-control-user" placeholder="First Name">
+                                            <input value="<?php echo $first_name; ?>" required name="first_name" type="text" class="form-control form-control-user" placeholder="First Name">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input required name="last_name" type="text" class="form-control form-control-user" placeholder="Last Name">
+                                            <input value="<?php echo $last_name; ?>"  required name="last_name" type="text" class="form-control form-control-user" placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input required name="email" type="email" class="form-control form-control-user" placeholder="Email">
+                                        <input value="<?php echo $email; ?>"  required name="email" type="email" class="form-control form-control-user" placeholder="Email">
                                     </div>
                                     <div class="form-group">
-                                        <input required name="phone_number" type="text" class="form-control form-control-user" placeholder="Phone Number">
+                                        <input value="<?php echo $phone_number; ?>"  required name="phone_number" type="text" class="form-control form-control-user" placeholder="Phone Number">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-file">
-                                            <input type="file" name="fileToUpload" class="custom-file-input" id="customFile">
+                                            <input type="file" name="fileToUpload" class="custom-file-input" id="customFile" required>
                                             <label class="file-label custom-file-label" for="customFile">
                                                 Upload Profile Picture
                                             </label>
