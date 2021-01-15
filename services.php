@@ -124,13 +124,30 @@
                 <div
                     style="
                         font-size:14px;
-                        margin-bottom:15px;
+                        margin-bottom:7px;
                         color:#aaa;
                     "
                 >
                     Posted by
                     <?php echo $service['service_first_name']; ?>
                     <?php echo $service['service_last_name']; ?>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <?php 
+                        $service_id = $service['id'];
+                        $result = mysqli_query($con,"SELECT * FROM books WHERE `service` = '$service_id'");
+                        $book_all = mysqli_fetch_all($result,MYSQLI_ASSOC);
+                        $stars = 0;
+                        foreach($book_all as $each){
+                            $stars += (int)$each['rating'];
+                        }
+                        $stars /= 5;
+                        $stars = ceil($stars);
+                        for($n=0;$n<$stars;$n++){
+                        ?>
+                            <i class="fa fa-star text-warning" style="font-size:20px"></i>
+                       <?php }
+                        ?>
                 </div>
                 <a href="service.php?id=<?php echo $service['id']; ?>#scroll-bottom" class="btn btn-primary mb-3">
                     Book Now!
