@@ -3,6 +3,7 @@
     $this_page="dashboard";
     $page_title="Search";
     require "must-have-ticket.php";
+    
     require "head.php";
 ?>
 <body id="page-top">
@@ -40,7 +41,19 @@
                                 </div>
                                 <div class="card-body">
                                     <?php
-                                        if(!$countSearch){
+                                        if(isset($_GET['category'])){
+                                            $category = sanitize($con,$_GET['category']);
+                                            $result = mysqli_query($con,"SELECT * FROM services WHERE category = '$category'");
+                                            $countSearch = $result->num_rows;
+                                            if ($countSearch > 0) {
+                                                $search_results = mysqli_fetch_all($result,MYSQLI_ASSOC);
+                                                $search_results_message = $countSearch." result".($countSearch>1?'s':'')." found!";
+                                            }else{
+                                                $search_results_message = "No results was found!";
+                                            }
+                                            
+                                        }
+                                        if($countSearch < 1){
                                             echo $search_results_message;
                                         }else{
                                             echo $search_results_message;

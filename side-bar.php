@@ -95,7 +95,7 @@
                 foreach($categories as $each){
             ?>
 
-                <a class="collapse-item" href="utilities-color.html"><?php echo ucfirst($each['category']); ?></a>
+                <a class="collapse-item" href="search.php?category=<?php echo ucfirst($each['id']); ?>"><?php echo ucfirst($each['category']); ?></a>
 
             <?php } ?>
         </div>
