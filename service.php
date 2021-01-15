@@ -334,7 +334,7 @@
                                             </form>
                                         <?php } ?>
                                     <?php } else { 
-                                            if($book['status']!='7'){ ?>
+                                            if($book['status']!='7' && isset($get_inquiring_id)){ ?>
                                         <a class="btn btn-primary" href="
                                             <?php
                                                 echo 
@@ -349,7 +349,7 @@
                                     <?php }} ?>
                                     </div>
                             </div>
-                            <?php if(isset($book['status'])){ ?>
+                            <?php if(isset($book['status']) && isset($get_inquiring_id)){ ?>
                             <?php if($book['status']=='7'){ ?>
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
