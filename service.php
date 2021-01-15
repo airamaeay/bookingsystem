@@ -220,6 +220,24 @@
                                         <?php echo $service['service_last_name']; ?>
                                     </div>
 
+                                    <div style="margin-bottom:20px;">
+                                        <?php 
+                                            $service_id = $service['id'];
+                                            $result = mysqli_query($con,"SELECT * FROM books WHERE `service` = '$service_id'");
+                                            $book_all = mysqli_fetch_all($result,MYSQLI_ASSOC);
+                                            $stars = 0;
+                                            foreach($book_all as $each){
+                                                $stars += (int)$each['rating'];
+                                            }
+                                            $stars /= 5;
+                                            $stars = ceil($stars);
+                                            for($n=0;$n<$stars;$n++){
+                                            ?>
+                                                <i class="fa fa-star text-warning" style="font-size:20px"></i>
+                                        <?php
+                                            }
+                                        ?>
+                                    </div>
                                     <?php if($is_booked){
                                             if($book['status']!='7'){
                                         ?>

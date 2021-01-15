@@ -88,6 +88,7 @@
             border-radius: 999px;
             background-position: center top;
             background-size: cover;
+            border: 1px solid #e8e8e8;
         }
         .messages .user-avatar{
             width: 40px;
