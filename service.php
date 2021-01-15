@@ -299,7 +299,6 @@
                                             <?php echo $service['service_email']; ?>
                                         </a>
                                     </div>
-                                    <?php if(!$is_booked){ ?>
                                         <?php if($user['definition']=="2"){ ?>
                                             <form method="post" action="service.php?id=<?php echo $id;?>&inquiring_id=<?php echo $user['id'];?>">
                                                 <div class="row mb-3">
@@ -333,150 +332,8 @@
                                                 </div>
                                             </form>
                                         <?php } ?>
-                                    <?php } else { 
-                                            if($book['status']!='7' && isset($get_inquiring_id)){ ?>
-                                        <a class="btn btn-primary" href="
-                                            <?php
-                                                echo 
-                                                    "message.php?".
-                                                    "service_id=".$service['id'].
-                                                    "&".
-                                                    "inquiring_id=".$get_inquiring_id;
-                                            ?>
-                                        ">
-                                            Messages
-                                        </a>
-                                    <?php }} ?>
                                     </div>
                             </div>
-                            <?php if(isset($book['status']) && isset($get_inquiring_id)){ ?>
-                            <?php if($book['status']=='7'){ ?>
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        Showing history due to a report!
-                                    </div>
-                                    <div class="card-body">
-                                            <div class="chat-box" id="chat-box">
-                                            <div style="width:100%;height:5px;"></div>
-                                        <?php
-                                            $service_id = $service['id'];
-                                            $result = mysqli_query($con,
-                                                "SELECT  
-                                                    m.*,
-                                                    b.date_time_from_to,
-                                                    u.definition,
-                                                    um.picture,    
-                                                    um.online_status
-                                                FROM messages m
-                                                    LEFT JOIN books b
-                                                        ON m.booking = b.id
-                                                    LEFT JOIN services s
-                                                        ON b.service = s.id
-                                                    LEFT JOIN users u
-                                                        ON b.consumer = u.id
-                                                    LEFT JOIN users um
-                                                        ON m.sender = um.id
-                                                WHERE s.id = '$service_id' AND u.id = '$get_inquiring_id'
-                                            ");
-                                            $messages = mysqli_fetch_all($result,MYSQLI_ASSOC);
-                                            $result = mysqli_query($con,
-                                                "SELECT * FROM services s
-                                                    LEFT JOIN books b
-                                                        ON b.service = s.id
-                                                    LEFT JOIN categories c
-                                                        ON c.id = s.category
-                                                WHERE s.id = '$service_id'
-                                            ");
-                                            $service = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-                                            $reporter = $messages[(count($messages))-1]['sender'];
-                                            $data_reporter = $reporter;
-
-                                            $result = mysqli_query($con,"SELECT * FROM booking_status");
-                                            $booking_status_list = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
-                                            $last_message_id = 0;
-                                            foreach($messages as $each){
-                                                $last_message_id = $each['id'];
-                                                if($each['status_update']){
-                                                    ?>
-                                                        <div class="row message-note mt-3">
-                                                            <div class="col text-center">
-                                                                <?php
-                                                                    foreach($booking_status_list as $booking_status){
-                                                                        if($booking_status['id']==$each['message']){
-                                                                ?>
-                                                                            <div class="status-lines"></div>
-                                                                            <span
-                                                                                class="badge-message-center badge badge-<?php echo $booking_status['color']; ?>"
-                                                                            >
-                                                                                <?php echo $booking_status['status']; ?>
-                                                                            </span>
-                                                                            <div class="message-date">
-                                                                                <?php echo dateAndTime($each['created'],"datetime"); ?>
-                                                                            </div>
-                                                                            <div class="status-lines"></div>
-                                                                <?php
-                                                                        }
-                                                                    }
-                                                                ?>
-                                                            </div>
-                                                        </div>
-                                                    <?php } else { ?>
-                                                <?php
-                                                    if(strpos($each['message'],"+++++++")){
-                                                        $who_reported = ucfirst(explode("+++++++",$each['message'])[1])
-                                                        ?>
-                                                            <div class="row message-note mt-3">
-                                                                <div class="col text-center">
-                                                                    <div class="status-lines"></div>
-                                                                    <span
-                                                                        class="badge-message-center badge badge-danger"
-                                                                    >
-                                                                        <?php echo $who_reported; ?> Reported
-                                                                    </span>
-                                                                    <div class="message-date">
-                                                                        <?php echo dateAndTime($each['created'],"datetime"); ?>
-                                                                    </div>
-                                                                    <div class="status-lines"></div>
-                                                                </div>
-                                                            </div>
-                                                        <?php
-                                                    }else{
-                                                ?>
-                                                        <!-- <div class="row">
-                                                            <div class="col">
-                                                                <div class="<?php echo ($each['sender']==$data_reporter)?'right':'left'; ?>-message">
-                                                                    <?php echo checkFirst($each['message']); ?>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="<?php echo ($each['sender']==$data_reporter)?'right':'left'; ?> message-avatar-holder">
-                                                                    <div
-                                                                        class="user-avatar"
-                                                                        style="background-image:url(<?php echo $picture_dir; ?><?php echo $each['picture']; ?>)"></div>
-                                                                    <div class="status-indicator <?php echo ($each['online_status'])?'bg-success':'';?>"></div>
-                                                                </div>
-                                                                <div class="<?php echo ($each['sender']==$data_reporter)?'right':'left'; ?>-message">
-                                                                    <?php echo checkFirst($each['message']); ?>
-                                                                    <div class="message-date <?php echo ($each['sender']==$data_reporter)?'right':'left'; ?>">
-                                                                        <?php echo dateAndTime($each['created'],"datetime"); ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                        <?php
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        ?>
-                                        
-                                </div>
-                                <div>
-                            <?php } ?>
                         </div>
                     </div>
                 </div>
