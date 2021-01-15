@@ -149,10 +149,11 @@
                        <?php }
                         ?>
                 </div>
+                <?php if($user["definition"]=="2"){ ?>
                 <a href="service.php?id=<?php echo $service['id']; ?>#scroll-bottom" class="btn btn-primary mb-3">
                     Book Now!
                 </a>
-
+                <?php } ?>
                 <p><?php echo $service['description']; ?></p>
                 
                 <div class="show-schedules mb-3">
