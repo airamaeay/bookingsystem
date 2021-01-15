@@ -3,6 +3,7 @@
     $this_page="services";
     require "must-have-ticket.php";
     $error_message="";
+
     if(isset($_GET['id'])){
         $id = sanitize($con,$_GET['id']);
         // $result = mysqli_query($con,"SELECT * FROM services WHERE `owner` = '$id'");
@@ -118,9 +119,7 @@
                         ; ?>
                 "></div>
                 <h1 style="font-size:24px;">
-                    <a href="service.php?id=<?php echo $service['id']; ?>">
                     <?php echo $service['title']; ?>
-                    </a>
                 </h1>
                 <div
                     style="
@@ -133,6 +132,9 @@
                     <?php echo $service['service_first_name']; ?>
                     <?php echo $service['service_last_name']; ?>
                 </div>
+                <a href="service.php?id=<?php echo $service['id']; ?>#scroll-bottom" class="btn btn-primary mb-3">
+                    Book Now!
+                </a>
 
                 <p><?php echo $service['description']; ?></p>
                 
@@ -200,6 +202,7 @@
                     ">
                         <?php echo $service['service_email']; ?>
                     </a>
+                    
                 </div>
             </div>
         </div>

@@ -300,7 +300,7 @@
                                         </a>
                                     </div>
                                         <?php if($user['definition']=="2"){ ?>
-                                            <form method="post" action="service.php?id=<?php echo $id;?>&inquiring_id=<?php echo $user['id'];?>">
+                                            <form id="scroll-bottom" method="post" action="service.php?id=<?php echo $id;?>&inquiring_id=<?php echo $user['id'];?>">
                                                 <div class="row mb-3">
                                                     <div class="col-12">
                                                         <hr>

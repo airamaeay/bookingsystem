@@ -22,7 +22,7 @@
     if(checkDefinition($user['definition'],'services')){
 ?>
         <li class="nav-item <?php if($this_page=='services'){echo 'active';}?>">
-            <a class="nav-link" href="services.php">
+            <a class="nav-link" href="services.php?id=<?php echo $user['id']; ?>">
                 <i class="fas fa-fw fa-tools"></i>
                 <span>My Services</span>
             </a>
