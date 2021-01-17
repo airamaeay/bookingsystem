@@ -167,6 +167,7 @@
                         echo "<br>";
                         echo $stars;
                         echo "<br>";
+                        $stars *= 5;
                         $stars = ceil($stars);
                         echo "stars3";
                         echo "<br>";
