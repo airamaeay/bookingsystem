@@ -140,8 +140,10 @@
                         $stars = 0;
                         $book_count = 0;
                         foreach($book_all as $each){
-                            $book_count += 1;
-                            $stars += (int)$each['rating'];
+                            if($each['rating']!=0){
+                                $book_count += 1;
+                                $stars += (int)$each['rating'];
+                            }
                         }
                         $stars /= $book_count;
                         $stars = ceil($stars);
