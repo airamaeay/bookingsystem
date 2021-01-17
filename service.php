@@ -226,10 +226,12 @@
                                             $result = mysqli_query($con,"SELECT * FROM books WHERE `service` = '$service_id'");
                                             $book_all = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                             $stars = 0;
+                                            $book_count = 0;
                                             foreach($book_all as $each){
+                                                $book_count += 1;
                                                 $stars += (int)$each['rating'];
                                             }
-                                            $stars /= 5;
+                                            $stars /= $book_count;
                                             $stars = ceil($stars);
                                             for($n=0;$n<$stars;$n++){
                                             ?>
