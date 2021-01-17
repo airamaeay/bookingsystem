@@ -139,44 +139,13 @@
                         $book_all = mysqli_fetch_all($result,MYSQLI_ASSOC);
                         $stars = 0;
                         $book_count = 0;
-                        var_dump($book_all);
-                        echo "<br>";
                         foreach($book_all as $each){
                             $book_count += 1;
-                            echo 'book_count';
-                            echo $book_count;
-                            echo "<br>";
-                            echo '(int)each[';
-                            echo (int)$each['rating'];
-                            echo "<br>";
                             $stars += (int)$each['rating'];
-                            echo "stars";
-                            echo "<br>";
-                            echo $stars;
                         }
-                        echo "<br>";
-                        echo $book_count;
-                        echo "<br>";
-                        echo "stars1";
-                        echo "<br>";
-                        echo $stars;
-                        echo "<br>";
                         $stars /= $book_count;
-                        echo "<br>";
-                        echo "stars2";
-                        echo "<br>";
-                        echo $stars;
-                        echo "<br>";
-                        $stars *= 5;
                         $stars = ceil($stars);
-                        echo "stars3";
-                        echo "<br>";
-                        echo $stars;
-                        echo "<br>";
                         for($n=0;$n<$stars;$n++){
-                            echo 'stars4';
-                        echo "<br>";
-                            echo $stars;
                         ?>
                             <i class="fa fa-star text-warning" style="font-size:20px"></i>
                        <?php }
